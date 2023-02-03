@@ -3,7 +3,9 @@ execute:
   echo: false 
   freeze: auto
   warning: false
-format: html
+format:
+ html:
+    embed-resources: true
 
 jupyter: python3 
 ---
