@@ -14,11 +14,11 @@ jupyter: python3
 
 ### Subject Introduction
 
-Der Vertrieb und Verkauf von Waren über das Internet ist zu einem wichtigen Vertriebskanal der modernen, digitalisierten Wirtschaft geworden. Diese Entwicklung wurde durch Covid19-Pandemie weiter verstärkt. So stiegen in Deutschland die im B2C E-Commerce erzielten Umsätze im Jahr 2020 gegenüber dem Vorjahr um fast 23% auf knapp 73 Milliarden Euro (Statista, 2022a). Auch innerhalb des B2B E-Commerce wird in den kommenden Jahren ein enormes Umsatzwachstum erwartet, in den USA wird der Umsatz im Jahr 2025 auf 2,5 Billionen steigen, dies entspricht einer Wachstumsrate von rund 11% p.a. (Statista, 2022b).
+Der Vertrieb und Verkauf von Waren über das Internet ist zu einem wichtigen Vertriebskanal der modernen, digitalisierten Wirtschaft geworden. Diese Entwicklung wurde durch die Covid19-Pandemie weiter verstärkt. So stiegen in Deutschland die im B2C E-Commerce erzielten Umsätze im Jahr 2020 gegenüber dem Vorjahr um fast 23% auf knapp 73 Milliarden Euro (Statista, 2022a). Auch innerhalb des B2B E-Commerce wird in den kommenden Jahren ein enormes Umsatzwachstum erwartet, in den USA wird der Umsatz im Jahr 2025 auf 2,5 Billionen steigen, dies entspricht einer Wachstumsrate von rund 11% p.a. (Statista, 2022b).
 
 ### Project Motivation
 
-Während die Umsätze im E-Commerce Jahr für Jahr steigen, sind die Margen im Onlinehandel für einen Großteil der Händler marginal. Dennoch müssen Unternehmen hohe Investitionen in das Online-Geschäft tätigen, um Umsätze im stark umkämpften Online-Geschäft zu erzielen (Alvarez & Marsal, 2021). Damit sich diese nachhaltig für das Unternehmen lohnen, müssen langfristig verlässliche Gewinne erwirtschaftet werden. Dieses Ziel kann nur erreicht werden, wenn externe Risiken für das Unternehmen minimiert und intern strategisch richtige Entscheidungen zur Portfolioerweiterung getroffen werden. Im folgenden soll ein Datensatz, bestehend aus Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Königreich analysiert werden, um Abhängigkeiten von bestimmten 1.) Ländern oder Regionen 2) Kunden 3) Produkten bzw. Produktgruppen zu identifizieren und 4) Potenziale für Umsatzwachstum / Gewinnsteigerung zu entdecken.
+Während die Umsätze im E-Commerce Jahr für Jahr steigen, sind die Margen im Onlinehandel für einen Großteil der Händler marginal. Dennoch müssen Unternehmen hohe Investitionen in das Online-Geschäft tätigen, um Umsätze im stark umkämpften Online-Geschäft zu erzielen (vgl. Alvarez & Marsal, 2021). Damit sich diese nachhaltig für das Unternehmen lohnen, müssen langfristig verlässliche Gewinne erwirtschaftet werden. Dieses Ziel kann nur erreicht werden, wenn externe Risiken für das Unternehmen minimiert und intern strategisch richtige Entscheidungen zur Portfolioerweiterung getroffen werden. Im Folgenden soll ein Datensatz, bestehend aus Transaktionsdaten eines E-Commerce Unternehmens aus dem Vereinigten Königreich, analysiert werden, um Abhängigkeiten von bestimmten 1.) Ländern oder Regionen zu identifizieren und 2) Potenziale für Umsatzwachstum / Gewinnsteigerung zu entdecken.
 
 ### General Research Question
 
@@ -26,17 +26,17 @@ Wie können Abhängigkeiten für den E-Commerce Shop langfristig reduziert werde
 
 ### Data Description
 
-Der Datensatz zeigt Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Koenigreich. Die Daten wurden zwischen dem 01.12.2010 und dem 09.12.2011 erfasst.
+Der Datensatz zeigt Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Königreich. Die Daten wurden zwischen dem 01.12.2010 und dem 09.12.2011 erfasst.
 
 Jeder Beobachtungswert stellt innerhalb des Datensatzes eine Transaktion dar, wobei mehreren Transaktionen eine Rechnung(snummer) zugeteilt werden kann.
 
-Der Datensatz enthaelt in der ursprünglichen Version 541909 Beobachtungswerte und 8 Spalten.
+Der Datensatz enthält in der ursprünglichen Version 541909 Beobachtungswerte und 8 Spalten.
 
-Es wurden keine Informationen dazu bereitgestellt, wie die Daten erhoben wurden. Es wird davon ausgegangen, dass sie aus dem CRM oder E-Commerce Backend des Shops stammen.
+Es wurden keine Informationen dazu bereitgestellt, wie die Daten erhoben wurden. Es wird davon ausgegangen, dass die Daten aus dem CRM oder E-Commerce Backend des Shops stammen.
 
 ### Data cleaning process
 
-Um die Daten zu säubern und für die weitere Verarbeitung vorzubereiten, mussten einige Anpassungen vorgenommen werden. Neben den offensichlichen Anpassungen wie dem Entfernen von fehlenden Werten und Leerzeilen wurden Zeilen entfernt, in welchen die Produktnummer darauf hinwies, dass es sich nicht um eine relevante Transaktion, sondern beispielsweise um Testtransaktionen oder Postsendungen handelt. Außerdem wurde der Gesamtpreis pro Transaktion als weitere Variable hinzugefügt. Darüber hinaus wurden Zeilen ohne Kundennummer oder Beschreibung entfernt, da dies auf eine nicht korrekte Transaktion hinweist.
+Um die Daten zu säubern und für die weitere Verarbeitung vorzubereiten, mussten einige Anpassungen vorgenommen werden. Neben Anpassungen wie dem Entfernen von fehlenden Werten und Leerzeilen wurden Zeilen entfernt, in welchen die Produktnummer darauf hinwies, dass es sich nicht um eine relevante Transaktion (d.h. Kauf eines Produkts), sondern beispielsweise um Testtransaktionen, Postsendungen oder Kosten für das Unternehmen handelt. Außerdem wurde der Gesamtpreis pro Transaktion ("TotalPrice") als weitere Variable hinzugefügt (es ist das Produkt aus "Quantity" und "UnitPrice"). Darüber hinaus wurden Zeilen ohne Kundennummer oder Beschreibung entfernt, da dies auf eine nicht korrekte Transaktion hinweist.
 
 ### Data Dictionary / Definition of key variables
 
@@ -52,7 +52,7 @@ Um die Daten zu säubern und für die weitere Verarbeitung vorzubereiten, musste
 |Country | Name des Landes in welchem der Kunde ansässig ist. | Nominal | category |
 |TotalPrice | Produkt aus Quantity und UnitPrice. | Verhaeltnis | float |
 
-## Eda
+## EDA
 
 ```{python}
 # Bibliotheken importieren
@@ -79,7 +79,7 @@ df = df.dropna(subset=['Description'])
 #### H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.
 
 ##### Chart Beschreibung
-Um die Response Variable für die Hypothese H1 zu visualisieren, werden die im jeweiligen Land erzielten Umsätze für die Top 10 Ländern gezeigt. Als Visualisierungsart wird ein Säulendiagramm verwendet, da sich so die Verhältnismäßigkeiten gut erkennen lassen. Durch das Eliminieren der horizontalen Gridlines wird Clutter minimiert. Der Fokus wird durch die Sortierung der Balken von lang nach kurz auf das für die Hypothese relevante Hauptmerkmal gelenkt. Es wurde zugunsten des Designs ein aussagekräftiger Titel sowie Untertitel gewählt und das Design bewusst schlicht gehalten.
+Um die Response Variable für die Hypothese H1 zu visualisieren, werden die im jeweiligen Land erzielten Umsätze für die Top 10 Ländern gezeigt. Als Visualisierungsart wird ein Säulendiagramm verwendet, da sich so die Verhältnismäßigkeiten gut erkennen lassen. Durch das Eliminieren der Gridlines wird Clutter minimiert. Der Fokus wird durch die Sortierung der Balken von lang nach kurz auf das für die Hypothese relevante Hauptmerkmal gelenkt. Es wurde zugunsten des Designs ein aussagekräftiger Titel sowie Untertitel gewählt und das Design bewusst schlicht gehalten.
 
 ```{python}
 # Gesamtumsatz berechnen
@@ -96,7 +96,7 @@ df_country_percentages = pd.DataFrame({'Country': country_percentages.index, 'Pe
 # Visualisierung des prozentualen Anteils am Gesamtumsatz für die top 10 Länder
 alt.Chart(df_country_percentages).mark_bar().encode(
     x=alt.X('Country', sort='-y', axis=alt.Axis(title='Country',titleAnchor='start',grid=False)),
-    y=alt.Y('Percentage',  axis=alt.Axis(title='Percentage of total turnover', labelAngle=0, titleAnchor='end',grid=False)),
+    y=alt.Y('Percentage',  axis=alt.Axis(title='Percentage of total revenue', labelAngle=0, titleAnchor='end',grid=False)),
     color=alt.condition(
         alt.FieldOneOfPredicate("Country", ["United Kingdom"]),
         alt.value("darkred"),
@@ -105,7 +105,7 @@ alt.Chart(df_country_percentages).mark_bar().encode(
 ).properties(
     title='Revenue by Country',
     width=400,
-    height=150
+    height=200
 ).configure_view(
     strokeWidth=0
 ).configure_title(
@@ -122,14 +122,14 @@ alt.Chart(df_country_percentages).mark_bar().encode(
     labelColor="grey",
     titleColor="grey"
 ).properties(
-    title={"text":["Turnover by country"], "subtitle":["How often orders were placed by country (percentage)"]},
+    title={"text":["Revenue by country"], "subtitle":["How often orders were placed by country (percentage)"]},
 )
 ```
 
 #### H2: Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe.
 
 ##### Chart Beschreibung
-Die Response Variable für Hypothese H3 (Rückgabewahrscheinlichkeit relativ zur Anzahl der getätigten Käufe je Kunde) wird durch ein Streudiagram visualisiert, da sich so die Beziehung zwischen den beiden Variablen visuell gut darstellen lässt. Clutter wurde wieder so weit wie möglich eliminiert. Hier ist ein Untertitel für das Verständnis nicht vonnöten. Der Titel ist für den Fokus des Betrachters ausreichend. Das Design ist schlicht und kommt mit wenigen Farben aus.
+Die Response Variable für Hypothese H2 (Rückgabewahrscheinlichkeit relativ zur Anzahl der getätigten Käufe je Kunde) wird durch ein Streudiagram visualisiert, da sich so die Beziehung zwischen den beiden Variablen visuell gut darstellen lässt. Clutter wurde wieder so weit wie möglich eliminiert. Hier ist ein Untertitel für das Verständnis nicht vonnöten. Der Titel ist für den Fokus des Betrachters ausreichend. Das Design ist schlicht und monochrom.
 
 ```{python}
 # Erstellen eines df, der Kunden nach ihrer CustomerID gruppiert Anzahl der Käufe und Rückgaben zählen
@@ -194,14 +194,14 @@ df_plot["TotalPrice"] = df_plot["TotalPrice"].div(1000)
 ```
 
 #### Chart Beschreibung
-Um zuerst eine Übersicht dem Zuhörer zu ermöglichen über den aktuellen Kenntnisstand werden die Umsätze nach Regionen / Ländern gezeigt. Hierfür werden die Regionen aufgrund der hohen Anzahl auf zehn begrenzt, um die Übersichtlichkeit beibehalten zu können. Als Visualisierungsart wird dabei ein Säulendiagramm verwendet, um die Verhältnisse der kategorialen (Land) und nummerischen Variable (Umsatz) zu visualisieren. Das Säulendiagramm wurde dabei gewählt, da hier sehr gut mehrere (absolute) Werte verglichen werden können.<br> Innerhalb der Visualisierung wird Clutter eleminiert indem Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus (im Kontext von Focus Attention) gezielt mit (hue) Farbe auf den Umsatz des Landes UK gelegt, da die Problematik auf der Verteilung und dem großen Anteil Uks liegt. Zudem wird im Kontext des Designs der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, grau und dunkelrot) gelegt.
+Um dem Betrachter zunächst eine Übersicht über den aktuellen Kenntnisstand zu geben, werden die Umsätze nach Regionen / Ländern gezeigt. Hierfür werden die Regionen aufgrund deren hohen Anzahl auf zehn begrenzt, um die Übersichtlichkeit beibehalten zu können. Als Visualisierungsart wird dabei ein Säulendiagramm verwendet, um die Verhältnisse der kategorialen (Land) und numerischen Variable (Umsatz) zu visualisieren. Das Säulendiagramm wurde dabei gewählt, da es zum Vergleich mehrerer (absoluter) Werte gut geeignet ist.<br> Innerhalb der Visualisierung wird Clutter eliminiert indem Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus (im Kontext von Focus Attention) gezielt mit Farbe (hue) auf den Umsatz des Landes UK gelegt, da die Problematik auf der Verteilung und dem großen Anteil von UK liegt. Zudem wird im Kontext des Designs der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, Grau und Dunkelrot) gelegt.
 
 ```{python}
 
 # Visualisierung der umsatzstärksten Kunden
 chart_co1 = alt.Chart(df_plot).mark_bar().encode(
     y=alt.Y("TotalPrice",
-            axis=alt.Axis(title="Revenue in (thousand) pound", 
+            axis=alt.Axis(title="Revenue in pounds (thousand)", 
                           labelAngle=0,
                           titleAnchor="end",
                           grid=False,
@@ -255,7 +255,7 @@ df_plot = pd.DataFrame(text, columns=['Country','TotalPrice'])
 ```
 
 #### Chart Beschreibung
-Anschließend soll nun dargestellt werden, wie die tatsächliche prozentuale Umsatzverteilung zwischen UK und anderen Ländern bzw. dem Rest der Welt ist, da im vorangegangen Chart bereits zu erkennen war, dass ein sehr großer Anteil auf Uk fällt (Länder neben UK werden zusammengefasst, da die Anteile sehr klein sind - hierdurch wird die Übersichtlichkeit gewährleistet). Als Visualisierungsart wird dabei ein Kreisdiagramm verwendet, um die Verhältnisse der Umsatzverteilung darzustellen. Das Diagramm wird verwendet da nur zwei Ausprägungen vorhanden sind und so eine Interpretation leicht für den Nutzer möglich ist. Um den Chart zu optimieren wird Clutter eleminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Zudem wird die separate Legende entfernt und in den Chart integriert. Hier wird durch den farblichen Text, welcher die zwei Kategorien beschreibt die Legende ersetzt (Closure). Durch die Nähe des Textes an den Kategorien des Chartes(Proximity) werden die Kategorien mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) und (shape) Form, sowie Breite (Width) des Textes auf den aktuellen Stand des Umsatzanteils des Landes UK gelegt. 
+Anschließend soll nun dargestellt werden, wie die tatsächliche prozentuale Umsatzverteilung zwischen UK und den anderen Ländern ist, da im vorangegangen Chart bereits zu erkennen war, dass ein sehr großer Anteil auf UK fällt (Länder neben UK werden zusammengefasst, da die Anteile sehr klein sind - hierdurch wird die Übersichtlichkeit gewährleistet). Als Visualisierungsart wird dabei ein Kreisdiagramm verwendet, um die Verhältnisse der Umsatzverteilung darzustellen. Das Diagramm wird verwendet, da nur zwei Ausprägungen vorhanden sind und so eine Interpretation leicht für den Nutzer möglich ist. Um den Chart zu optimieren wird Clutter eliminiert indem Hilfs- und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Zudem wird die separate Legende entfernt und in den Chart integriert. Hier wird durch den farblichen Text, welcher die zwei Kategorien beschreibt, die Legende ersetzt (Closure). Durch die Nähe des Textes an den Kategorien des Chartes (Proximity) werden die Kategorien mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit Farbe (hue, rot) und Form (shape), sowie Breite (Width) des Textes auf den aktuellen Stand des Umsatzanteils des Landes UK gelegt. 
 
 ```{python}
 # funktioniert
@@ -267,7 +267,7 @@ chart = alt.Chart(df_plot).encode(
         alt.value("grey")     
     )
 ).properties(
-    title={"text":["Distribution of revenue between the UK and the rest of the world"], "subtitle":["In the period from 01.12.2010 to 30.11.2011"]},
+    title={"text":["Distribution of revenue between the UK and the other countries"], "subtitle":["In the period from 01.12.2010 to 30.11.2011"]},
     width=550,
     height=350
 )
@@ -307,7 +307,7 @@ text_rest = alt.Chart().mark_text(
 ).encode(
     x=alt.value(385),  # pixels from left
     y=alt.value(50),  # pixels from top
-    text=alt.value("Rest of the world")
+    text=alt.value("Other countries")
 )
 
 revenue_rest = alt.Chart().mark_text(
@@ -389,7 +389,7 @@ df_plot_2 = df_plot_2[df_plot_2["Date"] == "2011-11-01"]
 ```
 
 #### Chart Beschreibung
-Neben der gesamten Umsatzverteilung soll auch der Verlauf dargestellt werden, um mögliche Rückgänge / Zuwächse darzustellen. Als Visualisierungsart wird dabei ein Liniendiagramm verwendet, um das Umsatz-Verhältnis von UK über die Monate darzustellen, da der Umsatzanteil so hoch ist wird nicht der Rest der Welt angezeigt (aufgrund der Skalierung des Graphs - der Abstand der Linien wäre zu groß und würde die leichte Übersicht stören). Durch die Nähe des Textes an dem letzten Datenpunkt des Chartes (Proximity) wird die (Text-)Information mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) auf den Text und somit auf den letzten Stand des Umsatzanteils des Landes UK gelegt. Der Chart nutzt das einheitliche Farbdesign der vorherigen Charts und ist möglichst übersichtlich gestaltet, indem nur die nötigsten Informationen dargestellt werden.
+Neben der gesamten Umsatzverteilung soll auch der Verlauf dargestellt werden, um mögliche Rückgänge / Zuwächse darzustellen. Als Visualisierungsart wird dabei ein Liniendiagramm verwendet, um das Umsatz-Verhältnis von UK über die Monate darzustellen. Da der Umsatzanteil so hoch ist, werden die restlichen Ländern nicht angezeigt (aufgrund der Skalierung des Graphs wäre der Abstand der Linien zu groß und würde die Übersicht erschweren). Durch die Nähe des Textes an dem letzten Datenpunkt des Chartes (Proximity) wird die (Text-)Information mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) auf den Text und somit auf den letzten Stand des Umsatzanteils des Landes UK gelegt. Der Chart nutzt das einheitliche Farbdesign der vorherigen Charts und ist möglichst übersichtlich gestaltet, indem nur die nötigsten Informationen dargestellt werden.
 
 ```{python}
 line_chart = alt.Chart(df_plot).mark_line().encode(
@@ -466,7 +466,7 @@ df_text = pd.DataFrame(text, columns=['Quantity', 'UnitPrice', 'CustomerID', 'To
 ```
 
 #### Chart Beschreibung
-Nun soll das Ziel kommuniziert werden, die Reduktion des Umsatzanteils von UK durch die Erhöhung der Umsätze in den Ländern außerhalb des Vereinigten Königreichs. Hierfür wird erneut auf die anfängliche Übersicht zurückgegriffen mit der Umsatzverteilung, allerdings nicht mit absoluten Werten sondern prozentualen Umsatzanteil. Wie in dem ersten Graph wird Clutter eleminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus gezielt mit (hue) Farbe auf den Umsatz des Landes UK gelegt zudem wird mit (added marks / spatial position)einer Textbeschreibung in der Visualisierung ein Fokus auf die Erklärung der Ziele gelegt, um mögliche Verwirrungen und Unklarheiten zu beseitigen. Im Kontext des Designs wird der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, grau und dunkelrot) gesetzt. Zudem werden Ziellinien hinzugefügt, um die Ziele des Umsatzanteils zu definieren.
+Nun soll das Ziel kommuniziert werden, die Reduktion des Umsatzanteils von UK durch die Erhöhung der Umsätze in den Ländern außerhalb des Vereinigten Königreichs. Hierfür wird erneut auf die anfängliche Übersicht mit der Umsatzverteilung zurückgegriffen, allerdings nicht mit absoluten Werten, sondern prozentualem Umsatzanteil. Wie im ersten Graph wird Clutter eliminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus gezielt mit Farbe (hue) auf den Umsatz des Landes UK gelegt. Zudem wird mit (added marks / spatial position) einer Textbeschreibung in der Visualisierung ein Fokus auf die Erklärung der Ziele gelegt, um möglichen Verwirrungen und Unklarheiten vorzubeugen. Im Kontext des Designs wird der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, Grau und Dunkelrot) gesetzt. Zudem werden Ziellinien hinzugefügt, um die Ziele des Umsatzanteils zu definieren.
 
 ```{python}
 
@@ -579,7 +579,7 @@ data = pd.DataFrame({'Category': ['Purchases', 'Returns'], 'Count': [purchases_c
 
 #### Chart Beschreibung
 
-Um einen klaren Fokus zu schaffen, habe ich den Rahmen des Diagramms entfernt und die Legende durch den Text im Chart ersetzt. Das besonders hervorgehobene Stück ist durch ein leuchtendes Rot hervorgehoben und zieht so die Aufmerksamkeit des Betrachters auf sich. Dabei habe ich bei der Gestaltung auf Einfachheit geachtet und das einheitliche Grau-Rot Farbschema verwendet.
+Um einen klaren Fokus zu schaffen, wurde der Rahmen des Diagramms entfernt und die Legende durch den Text im Chart ersetzt. Das besonders hervorgehobene Stück ist durch ein leuchtendes Rot hervorgehoben und zieht so die Aufmerksamkeit des Betrachters auf sich. Dabei wurde bei der Gestaltung auf Einfachheit geachtet und ein einheitliches, Grau-Rotes Farbschema verwendet.
 
 ```{python}
 chart = alt.Chart(data).encode(
@@ -590,7 +590,7 @@ chart = alt.Chart(data).encode(
         alt.value("grey")     
     )
 ).properties(
-    title={"text":["Distribution of returns versus keept purchases"], "subtitle":["In the period from 01.12.2010 to 30.11.2011"]},
+    title={"text":["Distribution: Returns versus kept purchases"], "subtitle":["In the period from 01.12.2010 to 30.11.2011"]},
     width=550,
     height=350
 )
@@ -658,7 +658,7 @@ df = df[df['Returned'] != 0]
 
 #### Chart Beschreibung
 
-Um einen klaren Fokus auf die Datenpunkte zu schaffen, habe ich die Achsen leicht ausgegraut und die Labels nah an den Achsen positioniert, um zu verdeutlichen, dass sie zusammengehören. Durch die Entfernung des Rahmens und das Ausblenden des Grids wird die Ablenkung minimiert und der Betrachter kann sich voll und ganz auf die Datenpunkte konzentrieren. Dies erleichtert das Verständnis der Daten und verbessert die visuelle Übersicht.
+Um einen klaren Fokus auf die Datenpunkte zu schaffen, wurden die Achsen leicht ausgegraut und die Labels nahe an den Achsen positioniert, um zu verdeutlichen, dass sie zusammen gehören. Durch die Entfernung des Rahmens und das Ausblenden des Grids wird die Ablenkung minimiert und der Betrachter kann sich voll und ganz auf die Datenpunkte konzentrieren. Dies erleichtert das Verständnis der Daten und verbessert die visuelle Übersicht.
 
 ```{python}
 chart5 = alt.Chart(df).mark_circle().encode(
@@ -706,14 +706,15 @@ alt.layer(chart5).configure_view(
 ```
 
 # Conclusion
-Damit die Forschungsfrage „Wie können Abhängigkeiten für den E-Commerce Shop langfristig reduziert werden und welche Maßnahmen können zur langfristigen Gewinnmaximierung getroffen werden?“ beantwortet werden kann werden die zwei Hypothesen „Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist“ und „Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe“ genauer betrachtet. Hypothese H1 fokussiert sich auf die Reduktion der Abhängigkeiten, hierbei wird der Zusammenhang zwischen dem Unternehmensstandort (Vereinigten Königreich) und dem Umsatz untersucht. Der Umsatzanteil des Vereinigten Königreiches beträgt 85% somit ist ein signifikanter Anteil des Umsatzes vom VK anhängig. Die große Umsatzabhängigkeit des Unternehmens von einem Land führt zu einem hohen Risiko, da politische Entscheidungen, wirtschaftliche Schwankungen oder sonstige lokale Einflüsse zu einem starken Umsatzrückgang beitragen könnten. Die Hypothese H2 fokussiert sich auf die Maximierung des Gewinns indem diese die Zusammenhänge zwischen Rückgaben und der Häufigkeit der Kundeneinkäufe untersucht. Auffällig ist hierbei, dass die Rückgaben bei einer steigenden Anzahl an Käufen sinkt. Aufgrund der generell niedrigen Retourenrate von rund 2% sind die Retouren kein unternehmensspezifisches Problem (vgl. Repko 2022).
-## Limitations and Data issues 
-Die Analyse der Hypothese H1 bezieht sich nur auf (Transaktions-)Daten der letzten zwölf Monate, wodurch der begrenzte Zeitraum eine Verzerrung der eigentlichen Umsatztreiber Wiederspiegeln könnte. Deshalb sollten zudem Daten vor den vergangen zwölf Monaten berücksichtigt werden, um keine Fehlentscheidungen zu unterstützen. Außerdem muss beachtet werden, dass keine Unterscheidung zwischen dem Kontext der Großabnehmer gemacht wurde. Es wurde nicht untersucht, ob einzelne Großkunden mit Sitz in UK die Waren auch in anderen Ländern vertreiben, wodurch die direkte Abhängigkeit des Landes sinken könnte. Eine genaue Untersuchung dieser Aspekte wäre (sofern Daten vorhanden sind) zu empfehlen.
+Damit die Forschungsfrage „Wie können Abhängigkeiten für den E-Commerce Shop langfristig reduziert werden und welche Maßnahmen können zur langfristigen Gewinnmaximierung getroffen werden?“ beantwortet werden kann, werden die zwei Hypothesen „Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist“ und „Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe“ genauer betrachtet. Hypothese H1 fokussiert sich auf die Reduktion der Abhängigkeiten, hierbei wird der Zusammenhang zwischen dem Unternehmensstandort (Vereinigten Königreich) und dem Umsatz untersucht. Der Umsatzanteil des Vereinigten Königreiches beträgt 85% somit ist ein signifikanter Anteil des Umsatzes vom VK anhängig. Die große Umsatzabhängigkeit des Unternehmens von einem Land führt zu einem hohen Risiko, da politische Entscheidungen, wirtschaftliche Schwankungen oder sonstige lokale Einflüsse zu einem starken Umsatzrückgang beitragen könnten. Die Hypothese H2 fokussiert sich auf die Maximierung des Gewinns, indem diese die Zusammenhänge zwischen Rückgaben und der Häufigkeit der Kundeneinkäufe untersucht. Auffällig ist hierbei, dass die Rückgaben bei einer steigenden Anzahl an Käufen (pro Kunde) sinken. Aufgrund der generell niedrigen Retourenrate von rund 2% sind die Retouren kein unternehmensspezifisches Problem (vgl. Repko, 2022).
+## Limitations and Data issues
+Die Analyse der Hypothese H1 bezieht sich nur auf (Transaktions-)Daten der letzten zwölf Monate, wodurch der begrenzte Zeitraum eine Verzerrung der eigentlichen Umsatztreiber(Regionen) wiederspiegeln könnte. Deshalb sollten zudem Daten vor den vergangenen zwölf Monaten berücksichtigt werden, damit keine Fehlentscheidungen getroffen werden. Außerdem muss beachtet werden, dass keine Unterscheidung zwischen dem Kontext der Großabnehmer gemacht wurde. Es wurde nicht untersucht, ob einzelne Großkunden mit Sitz in UK die Waren auch in anderen Ländern vertreiben, wodurch die direkte Abhängigkeit des Landes sinken könnte. Eine genaue Untersuchung dieser Aspekte wäre (sofern Daten vorhanden sind) zu empfehlen.
 
-Die Hypothese H2 konzentriert sich auf die Retouren der Kunden, dabei werden Produktspezifische Rückgaberaten ignoriert. Dies sollte jedoch nicht isoliert betrachtet werden, da die Retouren insbesondere stark vom Produkt- und der jeweiligen Kategorie abhängig sind. In diesem Kontext sollten Rückgaben auf Produktebene zusätzlich untersucht werden und im Kontext von der Gewinnmarge pro Produkt neu evaluiert werden, um eventuelle Kostenfallen für das Unternehmen zu eliminieren. (Aufgrund der generellen niedrigen Retourenrate und limitierten Datenverfügbarkeit wurde darauf bewusst verzichtet / dem begrenzten Projektumfang).
+Die Hypothese H2 konzentriert sich auf die Retouren der Kunden, dabei werden produktspezifische Rückgaberaten ignoriert. Dies sollte jedoch nicht isoliert betrachtet werden, da die Retouren insbesondere stark vom Produkt- und der jeweiligen Kategorie abhängig sind. In diesem Kontext sollten Rückgaben auf Produktebene zusätzlich untersucht werden und im Kontext der Gewinnmarge pro Produkt neu evaluiert werden, um eventuelle Kostenfallen für das Unternehmen zu eliminieren. Aufgrund der generellen niedrigen Retourenrate sowie der limitierten Datenverfügbarkeit und dem begrenzten Projektumfang wurde hierauf bewusst verzichtet.
 
 ## Recommended Action
- Das Unternehmen muss die Umsatzabhängigkeit von dem Vereinigten Königreich senken, indem der Umsatz durch eine Marktdurchdringungsstrategie in Ländern außerhalb des VK gestärkt wird. Hierfür werden Investitionen in das Marketing und eine Anpassung des Webshops für landesspezifische Präferenzen benötigt werden. Zudem sollte das Unternehmen die Mechanismen zur Verringerung der Retourenrate beibehalten.
+Das Unternehmen muss die Umsatzabhängigkeit von dem Vereinigten Königreich senken, indem der Umsatz durch eine Marktdurchdringungsstrategie in Ländern außerhalb des VK gestärkt wird. Hierfür werden Investitionen in das Marketing und eine Anpassung des Webshops für landesspezifische Präferenzen empfohlen. Damit die Regionen mit einem besonders hohen Umsatzpotential identifiziert werden können, um dort die Anwendung der Marktdurchdringungsstrategie zu ermöglichen muss ein Analyseprojekt durchgeführt werden. Zudem sollte das Unternehmen die Mechanismen zur Verringerung der Retourenrate beibehalten.
+
 
 # Literatur 
 
@@ -724,3 +725,4 @@ Statista. (2022a, Mai 11). Prognose der Marktentwicklung des Online-Handels in D
 Statista. (2022b, Juli 25). Prognose der Umsätze im B2B-E-Commerce in den USA bis 2025. https://de.statista.com/statistik/daten/studie/1321716/umfrage/umsaetze-im-b2b-e-commerce-in-den-usa/
 
 Repko, Melissa (2022): A more than $761 billion dilemma: Retailers’ returns jump as online sales grow, CNBC, [online] https://www.cnbc.com/2022/01/25/retailers-average-return-rate-jumps-to-16point6percent-as-online-sales-grow-.html.
+
