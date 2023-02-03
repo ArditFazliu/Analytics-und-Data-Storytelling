@@ -1,0 +1,632 @@
+---
+execute:
+  echo: false 
+  freeze: auto
+  warning: false
+format:
+ html:
+    embed-resources: true
+    
+jupyter: python3
+---
+
+### EDA - Explorative data analysis
+
+Im Folgenden werden weitere Korrekturen an den Daten vorgenommen.
+
+```{python}
+# Bibliotheken importieren
+import pandas as pd
+import altair as alt
+from pathlib import Path
+```
+
+```{python}
+# CSV Einlesen 
+parent_path = str(Path().resolve().parent.parent) + "/"
+data_path = "Analytics-und-Data-Storytelling/data/"
+processed_path = "processed/"
+processed_file = "processed_data.csv"
+
+df = pd.read_csv(parent_path + data_path + processed_path + processed_file, encoding= 'unicode_escape')
+```
+
+```{python}
+# Weitere Korrekturen
+
+# Doppelte Werte löschen
+df = df.drop_duplicates()
+
+# Fehlende Werte auslesen
+df.isna().sum()
+
+# Weitere fehlende Werte löschen
+df = df.dropna(subset=['CustomerID'])
+df = df.dropna(subset=['Description'])
+
+#df.head()
+```
+
+Die Prüfung auf ungewöhnliche Werte zeigt uns, dass einige Ausreißer existieren. Insbesondere das auffällig hohe Maximum, welches mit dem Minimum für Quantität (also bestellte Produkteinheiten) übereinstimmt, weist auf mindestens eine versehentliche Bestellung oder einen Tippfehler bei der Bestellung eines Kundens hin. Diese wurden manuell überprüft und hier zugunsten der Visualisierungen für die Hypothesen beibehalten. In der ausführlichen explorativen Datenanalyse ("Legacy_EDA") findet sich eine bereinigte Version hiervon. In Bezug auf die Preise der Artikel zeigt uns außerdem die Differenz zwischen dem 75sten Perzentil und dem Maximum, dass auch hier Ausreißer existieren. Für die folgende Betrachtung wird daher angeraten, den Fokus auf den Median und nicht den Durchschnitt zu setzen, da die Ausreißer diesen verzerrt darstellen. 
+
+```{python}
+# Prüfung auf ungewöhnliche Werte
+print(df.describe())
+```
+
+##### Chart Beschreibung
+Bei der folgenden Visualisierung handlet es sich um einen simplen Boxplot, welcher die Verteilung der Gesamtumsätze pro Land in der mittels ".describe()" Funktion ausgegebenen Tabelle visualisiert. Durch das Eliminieren der Gridlinien wird Clutter minimiert. Der Fokus wird durch einen aussagekräftigen Titel und erklärenden Untertitel hergestellt. Das Design ist schlicht und simpel gehalten.
+
+```{python}
+# Nach individuellem Land gruppieren
+grouped = df.groupby('Country').agg({'TotalPrice': 'sum'})
+
+print(grouped.describe())
+
+# Boxplot erstellen
+boxplot = alt.Chart(grouped).mark_boxplot(extent='min-max').encode(
+    x=alt.X("TotalPrice:Q",
+            axis=alt.Axis(title = "Total revenue per country",
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="start",
+    )),
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Revenue per country"], "subtitle":["A simple box plot of revenue per country"]}, width=300, height=100
+)
+
+# Ausgabe des Boxplots
+boxplot 
+```
+
+Da das Vereinigte Königreich die Darstellung stark beeinflusst, nachfolgend eine Version des Boxplots ohne VK.
+
+```{python}
+df_wo = df[df['Country'] != 'United Kingdom']
+
+# Nach individuellem Land gruppieren
+grouped = df_wo.groupby('Country').agg({'TotalPrice': 'sum'})
+
+print(grouped.describe())
+
+# Boxplot erstellen
+boxplot = alt.Chart(grouped).mark_boxplot(extent='min-max').encode(
+    x=alt.X("TotalPrice:Q",
+            axis=alt.Axis(title = "Total revenue per country",
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="start",
+    )),
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Revenue per country"], "subtitle":["A simple box plot of revenue per country without UK"]}, width=300, height=100
+)
+
+# Ausgabe des Boxplots
+boxplot 
+```
+
+##### Chart Beschreibung
+In der folgenden Visualisierung geht es darum, zu sehen, wie häufig Produkte eines jeweiligen Preises gekauft werden. Hier wurde ein Balkendiagram gewählt, um die Verteilung einfach sichtbar zu machen. Außerdem werden die exakten Werte mittels ".describe()" Funktion ausgegebenen.  Durch das Eliminieren der - hier für das Verständnis nicht notwendigen - Gridlinien wird Clutter minimiert. Der Fokus wird durch einen aussagekräftigen Titel und erklärenden Untertitel hergestellt. Das Design ist schlicht und simpel gehalten.
+
+```{python}
+# Häufigkeit der Werte in UnitPrice
+x = df['UnitPrice']
+
+df_unitprice = pd.value_counts(x)
+
+df_unitprice = df_unitprice.reset_index()
+df_unitprice.columns = ["UnitPrice", "Frequency"]
+
+print(df_unitprice.describe())
+
+# Barplot erstellen
+barplot = alt.Chart(df_unitprice).mark_bar().encode(
+y=alt.Y("Frequency:Q",
+            axis=alt.Axis(title = "Frequency",
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="end",
+    )),
+    x=alt.X("UnitPrice:Q",
+            axis=alt.Axis(title = "UnitPrice",
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="start",
+    )),
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Price distribution"], "subtitle":["How often items of a certain price were bought"]},
+)
+
+# Ausgabe des Barplots
+barplot
+
+```
+
+##### Chart Beschreibung
+Eine weitere Interessante Beobachtung, insbesondere unter Berücksichtigung der Tatsache, dass der betrachtete Online Shop Geschäftskunden als auch Privatkunden bedient, ist die Verteilung der Bestellungen pro Kunde (hier repräsentiert durch die Kundennummer). Bei der folgenden Visualisierung handelt es sich um ein Balkendiagramm, welches eine einfache visuelle Vergleichbarkeit herstellt. Gridlinien sind auch hier nicht vonnöten, da es um die Tendenz und nicht um die genauen Werte geht. Der Fokus wird durch einen aussagekräftigen Titel und erklärenden Untertitel hergestellt. Das Design ist schlicht und simpel gehalten.
+
+```{python}
+# Häufigkeit der Werte in CustomerID
+grouped = df.groupby('InvoiceNo').agg({'CustomerID': 'first'})
+
+x = grouped['CustomerID']
+
+df_customer = pd.value_counts(x)
+
+df_customer = df_customer.reset_index()
+df_customer.columns = ["CustomerID", "Frequency"]
+df_customer = df_customer.sort_values(by='Frequency', ascending=False)
+
+# Top 100 Kunden mit den meisten Bestellungen
+df_top100 = df_customer.head(100)
+ranking = list(df_top100['CustomerID'])
+
+# Barplot erstellen
+barplot = alt.Chart(df_top100).mark_bar().encode(
+y=alt.Y("Frequency:Q", 
+                        axis=alt.Axis(title = "Frequency",
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="end",
+    )),
+
+    x=alt.X("CustomerID:N", 
+                        sort=ranking,
+                        axis=alt.Axis(title = "CustomerID",
+                        labels=False,
+                        grid=False,
+                        labelAngle=0,
+                        titleAnchor="start",
+                        
+    )),
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["CustomerID distribution: Top 100 customers"], "subtitle":["How often each individual customer placed an order (one bar represents one customer)"]}, width=500, height=300
+)
+
+# Ausgabe des Barplots
+barplot
+
+
+```
+
+```{python}
+# Gesamtumsatz berechnen
+gesamtumsatz = df['TotalPrice'].sum()
+
+#print(gesamtumsatz)
+```
+
+Im Folgenden wird die explorative Datenanalyse für die response Variable jeder Hypothese durchgeführt.
+
+#### H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.
+
+##### Chart Beschreibung
+Um die Response Variable für die Hypothese H1 zu visualisieren, werden die im jeweiligen Land erzielten Umsätze für die Top 10 Ländern gezeigt. Als Visualisierungsart wird ein Balkendiagramm verwendet, da sich so die Verhältnismäßigkeiten gut erkennen lassen. Durch das Eliminieren der horizontalen Gridlines wird Clutter minimiert. Der Fokus wird durch die Sortierung der Balken von lang nach kurz auf das für die Hypothese relevante Hauptmerkmal gelenkt. Es wurde zugunsten des Designs ein aussagekräftiger Titel sowie Untertitel gewählt und das Design bewusst schlicht gehalten.
+
+```{python}
+# Berechnung des Gesamtumsatzes für jedes Land
+country_totals = df.groupby('Country')['TotalPrice'].sum()
+
+# Berechnung des prozentualen Anteils am Gesamtumsatz für jedes Land
+country_percentages = country_totals / gesamtumsatz * 100
+
+# Erstellen eines DataFrame mit den Spalten Land und Anteil am Gesamtumsatz
+df_country_percentages = pd.DataFrame({'Country': country_percentages.index, 'Percentage': country_percentages.values}).sort_values(by='Percentage', ascending=False).head(10) 
+
+# Visualisierung des prozentualen Anteils am Gesamtumsatz für die top 10 Länder
+alt.Chart(df_country_percentages).mark_bar().encode(
+    x=alt.X('Percentage', axis=alt.Axis(title='Percentage of total revenue')),
+    y=alt.Y('Country', sort='-x', axis=alt.Axis(title='Country'))
+).properties(
+    title='Revenue by Country',
+    width=400,
+    height=300
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Revenue by country"], "subtitle":["How often orders were placed by country (percentage)"]},
+)
+```
+
+##### Chart Beschreibung
+Eine weitere interessante Variable ist der durchschnittliche Bestellwert je Land, welcher in der folgenden Visualisierung dargestellt wird. Für eine einfache Vergleichbarkeit wird ein nach durchschnittlichem Bestellwert sortiertes Balkendiagramm genutzt. Clutter wird eliminitert durch das Auslassen der horizontalen Gridlinien. Fokus wird durch das farbliche Hervorheben des Landes, in dem der Online Shop ansässig ist, hergestellt. Das Design der restlichen Balken ist grau und damit schlicht gehalten. Um die Verhältnismäßigkeit zu zeigen wurde die Anzahl der Bestellungen aus dem jeweiligen Land bei Mouseover hinzugefügt.
+
+```{python}
+# Gruppieren der Daten pro Bestellung
+grouped = df.groupby('InvoiceNo').agg({'TotalPrice': 'sum'})
+
+# Zusammenführen der Daten mit den Ländern
+grouped = pd.merge(grouped, df[['InvoiceNo', 'Country']], on='InvoiceNo', how='left')
+
+grouped = grouped.groupby('Country').agg({'TotalPrice': 'mean'})
+grouped.rename(columns={'TotalPrice': 'Avg Order Value'}, inplace=True)
+grouped = grouped.reset_index()
+
+# Sortieren der Daten nach dem durchschnittlichen Bestellwert (absteigend)
+df_avg_order_value = grouped.sort_values(by='Avg Order Value', ascending=False)
+
+#print(df_avg_order_value)
+
+df_orders_per_country = df.groupby('Country')['InvoiceNo'].nunique()
+df_orders_per_country = df_orders_per_country.reset_index()
+df_orders_per_country.rename(columns={'InvoiceNo': 'Number of Orders'}, inplace=True)
+#df_orders_per_country = df_orders_per_country.sort_values(by='Number of Orders', ascending=False)
+
+# Merge Number of Orders Werte mit df_avg_order_value
+df_avg_order_value = pd.merge(df_avg_order_value, df_orders_per_country, on='Country', how='left')
+
+# Visualisierung des durchschnittlichen Bestellwertes pro Land
+alt.Chart(df_avg_order_value).mark_bar().encode(
+    x=alt.X('Avg Order Value', title="Average Order Value"),
+    y=alt.Y('Country', sort='-x', title="Country"),
+    tooltip=['Number of Orders'],
+    color=alt.condition(
+        alt.datum.Country == 'United Kingdom',
+        alt.value('orange'),
+        alt.value('lightgray')
+    )
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Average order value by country"], "subtitle":["Takeaway: The UK does not have the highest average order value."]},
+)
+
+
+```
+
+#### H2: Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe.
+
+##### Chart Beschreibung
+Die Response Variable für Hypothese H2 (Rückgabewahrscheinlichkeit relativ zur Anzahl der getätigten Käufe je Kunde) wird durch ein Streudiagram visualisiert, da sich so die Beziehung zwischen den beiden Variablen visuell gut darstellen lässt. Clutter wurde wieder so weit wie möglich eliminiert. Hier ist ein Untertitel für das Verständnis nicht vonnöten. Der Titel ist für den Fokus des Betrachters ausreichend. Das Design ist schlicht und kommt mit wenigen Farben aus.
+
+```{python}
+# Erstellen eines df, der Kunden nach ihrer CustomerID gruppiert Anzahl der Käufe und Rückgaben zählen
+df_purchases_returns = df.groupby(['CustomerID']).agg({'InvoiceNo': 'count'})
+df_purchases_returns['Total Returns'] = df[df['InvoiceNo'].str.contains('C')].groupby(['CustomerID'])['InvoiceNo'].count()
+
+# Umbennenung
+df_purchases_returns.rename(columns={'InvoiceNo': 'Total Purchases'}, inplace=True)
+
+# Rückgabewahrscheinlichkeit berechnen
+df_purchases_returns['Probability of Return'] = df_purchases_returns['Total Returns'] / df_purchases_returns['Total Purchases']
+
+# Visualisierung der Beziehung zwischen der Anzahl der getätigten Käufe und der Rückgabewahrscheinlichkeit
+chart = alt.Chart(df_purchases_returns).mark_circle().encode(
+    x=alt.X('Total Purchases', axis=alt.Axis(title='Total purchases')),
+    y=alt.Y('Probability of Return', axis=alt.Axis(title='Probability of return')),
+    tooltip = ['Total Purchases', 'Probability of Return']
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Return probability vs. number of purchases made"], "subtitle":[""]},
+)
+
+# Chart darstellen
+chart
+```
+
+#### Bonus Hypothesis: Kunden, die schon länger im Online-Shop einkaufen, generieren einen höheren Umsatz.
+
+##### Chart Beschreibung
+Die Visualisierungen für die Response Variable für die Bonus Hypothese (der Gesamtumsatz pro Kundengruppe, die ein bestimmte Kundenbindung in Tagen aufweist) zu visualisieren, wurde ein Liniendiagramm verwendet, da sich so der Trend des Gesamtumsatzes relativ zur Kundenbindung besser ablesen lässt. Die Datenpunkte auf der X-Achse repräsentieren jeweils die Summe des Umsatzes aller Kunden, deren Kundenbindung die entsprechende Anzahl an Tagen beträgt. Die Kundenbindung wurde aus dem Abstand zwischen dem letzten Kauf eines jeweiligen Kunden zu dessen ersten Kauf in unserem Datensatz berechnet. Zusätzlich wurden der gleitende Durchschnitt und die Durchschnittswerte visualisiert. Alle Visualisierungen beinhalten so wenig Clutter wie möglich. Das einzige Element, was reduziert werden könnte, sind die Gridlinien. Diese sind aber in diesem Fall hilfreich für den Betrachter, da sowohl die Entwicklung der Linie in vertikale als auch horizontale Richtung relevant für das Verständnis ist. Der Fokus für den Betrachter wird durch einen aussagekräftigen Titel sowie Untertitel hergestellt. Das Design ist wieder bewusst schlicht gehalten.
+
+```{python}
+# Spalte "CustomerAge": Anzahl der Tage zwischen Datum des letzten und des ersten Einkaufs pro Kunde
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['CustomerAge'] = (df.groupby('CustomerID')['InvoiceDate'].transform('min') - df['InvoiceDate']).dt.days
+
+# Daten nach 'CustomerAge' gruppieren und Gesamtumsatz für jede Gruppe berechnen
+age_sales = df.groupby('CustomerAge')['TotalPrice'].sum()
+
+# Erstellen eines DataFrame mit den Spalten "CustomerAge" und "TotalPrice".
+df_age_sales = pd.DataFrame({'CustomerAge': age_sales.index, 'TotalSales': age_sales.values})
+
+# Neukunden herausfiltern (sonst massive Verzerrung der Visualisierung, wird später ersichtlich)
+df_age_sales = df_age_sales[df_age_sales['CustomerAge'] < 0]
+
+# Werte in CustomerAge mit -1 multiplizieren, damit die Kundenbindung in Tagen positiv ist
+df_age_sales['CustomerAge'] = df_age_sales['CustomerAge'] * -1
+
+# Visualisierung des Gesamtumsatzes, der von Kunden auf Grundlage dessen, wie lange sie schon im Online-Shop einkaufen, generiert wurde
+chart = alt.Chart(df_age_sales).mark_line().encode(
+    x=alt.X('CustomerAge', axis=alt.Axis(title='Customer loyalty in days')),
+    y=alt.Y('TotalSales', axis=alt.Axis(title='Total revenue')),
+    tooltip = ['CustomerAge', 'TotalSales']
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Total revenue by customer age"], "subtitle":["Total revenue by customer age in the shop (customer loyalty)"]},
+)
+
+# Chart anzeigen
+chart
+```
+
+##### Chart Beschreibung
+An dieser Stelle ist es interessant zu wissen, wie viele Kunden in jeder Gruppe Kundenalter-Gruppe sind. Für eine einfache Vergleichbarkeit wird hier wieder ein Balkendiagramm genutzt. Hier helfen beide Gridlinien beim Verständnis der Grafik. Fokus wird durch das farbliche Hervorheben der größten Gruppe, die hier die Neukunden repräsentiert, hergestellt. Das Design der restlichen Balken ist grau und damit schlicht gehalten.
+
+```{python}
+# Spalte "CustomerAge": Anzahl der Tage zwischen Datum des letzten und des ersten Einkaufs pro Kunde
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['CustomerAge'] = (df.groupby('CustomerID')['InvoiceDate'].transform('min') - df['InvoiceDate']).dt.days
+
+# Daten nach "CustomerAge" gruppieren und die Anzahl der Kunden in jeder Gruppe zählen
+age_count = df.groupby('CustomerAge')['CustomerID'].nunique()
+
+# Neuer df mit Spalten "CustomerAge" und "CustomerCount"
+df_age_count = pd.DataFrame({'CustomerAge': age_count.index, 'CustomerCount': age_count.values})
+
+# Werte in CustomerAge mit -1 multiplizieren, damit die Kundenbindung in Tagen positiv ist
+df_age_count['CustomerAge'] = df_age_count['CustomerAge'] * -1
+
+bar_normal = alt.Chart(df_age_count).mark_bar().encode(
+    x=alt.X('CustomerAge', title="Customer Age"),
+    y=alt.Y('CustomerCount', title="Customer Count"),
+    color=alt.value("lightgray")
+).transform_filter(
+    alt.datum.CustomerAge != 0
+)
+
+# Highlight hinzufügen
+bar_highlight = alt.Chart(df_age_count).mark_bar().encode(
+    x=alt.X('CustomerAge', title="Customer Age"),
+    y=alt.Y('CustomerCount', title="Customer Count"),
+    color=alt.value("orange")
+).transform_filter(
+    alt.datum.CustomerAge == 1
+)
+
+(bar_normal + bar_highlight).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Number of customers by customer age (loyalty)"], "subtitle":["Takeaway: Many customers are new customers (as they have no prior purchase history)"]},
+)
+```
+
+```{python}
+# Berechnung des Gesamtumsatzes für jedes Land
+
+# "CustomerAge" anlegen: Anzahl der Tage zwischen dem frühesten Rechnungsdatum und der ersten Rechnung je Kunde
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['CustomerAge'] = (df.groupby('CustomerID')['InvoiceDate'].transform('min') - df['InvoiceDate']).dt.days
+
+# Daten nach 'CustomerAge' gruppieren und Gesamtumsatz für jede Gruppe berechnen
+age_sales = df.groupby('CustomerAge')['TotalPrice'].sum()
+
+# Erstellen eines DataFrame mit den Spalten "CustomerAge" und "TotalPrice".
+df_age_sales = pd.DataFrame({'CustomerAge': age_sales.index, 'TotalSales': age_sales.values})
+
+# Neukunden herausfiltern (sonst massive Verzerrung der Visualisierung)
+df_age_sales = df_age_sales[df_age_sales['CustomerAge'] < 0]
+
+# Werte in CustomerAge mit -1 multiplizieren, damit die Kundenbindung in Tagen positiv ist
+df_age_sales['CustomerAge'] = df_age_sales['CustomerAge'] * -1
+
+# Zusammenführen von df_age_sales mit df_age_count aus der vorherigen Visualisierung
+df_age_sales = df_age_sales.merge(df_age_count, on='CustomerAge', how='left')
+
+# Berechnung des Durchschnitts des Gesamtumsatzes für jede Kundenaltergruppe
+df_age_sales['AverageTotalSales'] = df_age_sales['TotalSales'] / df_age_sales['CustomerCount']
+
+#print(df_age_sales)
+
+# Visualisierung des Gesamtumsatzes, der von Kunden auf Grundlage dessen, wie lange sie schon im Online-Shop einkaufen, generiert wurde
+chart = alt.Chart(df_age_sales).mark_line().encode(
+    x=alt.X('CustomerAge', axis=alt.Axis(title='Customer loyalty in days')),
+    y=alt.Y('AverageTotalSales', axis=alt.Axis(title='Average revenue')),
+    tooltip = ['CustomerAge', 'TotalSales']
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Average: Total revenue by customer age"], "subtitle":["Total revenue by customer age in the shop (customer loyalty)"]},
+)
+
+# Line Chart darstellen
+chart
+```
+
+```{python}
+# Gleitender Durchschnitt
+df_age_sales = df_age_sales.assign(TotalSales_MA=df_age_sales.rolling(window=100).mean()['TotalSales'])
+
+# Line Chart mit gleitendem Durchschnitt
+chart = alt.Chart(df_age_sales).mark_line().encode(
+    x=alt.X('CustomerAge', axis=alt.Axis(title='Customer loyalty in days')),
+    y=alt.Y('TotalSales_MA', axis=alt.Axis(title='Total revenue moving average')),
+    tooltip = ['CustomerAge', 'TotalSales_MA']
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Moving average: Total revenue by customer age"], "subtitle":["Total revenue by customer age in the shop (customer loyalty)"]},
+)
+
+# Line Chart darstellen
+chart
+```
+
+```{python}
+# Gleitender Durchschnitt
+#df_age_sales = df_age_sales.assign(TotalSales_MA=df_age_sales.rolling(window=50).mean()['TotalSales'])
+
+df_age_sales = df_age_sales.assign(AverageTotalSales_MA=df_age_sales.rolling(window=100).mean()['AverageTotalSales'])
+
+
+# Line Chart mit gleitendem Durchschnitt
+chart = alt.Chart(df_age_sales).mark_line().encode(
+    x=alt.X('CustomerAge', axis=alt.Axis(title='Customer loyalty in days')),
+    y=alt.Y('AverageTotalSales_MA', axis=alt.Axis(title='Average total revenue moving average')),
+    tooltip = ['CustomerAge', 'AverageTotalSales_MA']
+).configure_view(
+    strokeWidth=0
+).configure_title(
+    fontSize=22,
+    font="Arial",
+    color="black",
+    anchor="start"
+).configure_axis(
+    labelFont="Arial",
+    titleFont="Arial",
+    labelFontSize=14,
+    titleFontSize=16,
+    titleFontWeight="normal",
+    labelColor="grey",
+    titleColor="grey"
+).properties(
+    title={"text":["Moving average: Average total revenue by customer age"], "subtitle":["Total revenue by customer age in the shop (customer loyalty)"]},
+)
+
+# Line Chart darstellen
+chart
+```
+
