@@ -54,11 +54,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h2>
 <section id="subject-introduction" class="level3">
 <h3 class="anchored" data-anchor-id="subject-introduction">Subject Introduction</h3>
-<p>Der Vertrieb und Verkauf von Waren über das Internet ist zu einem wichtigen Vertriebskanal der modernen, digitalisierten Wirtschaft geworden. Diese Entwicklung wurde durch Covid19-Pandemie weiter verstärkt. So stiegen in Deutschland die im B2C E-Commerce erzielten Umsätze im Jahr 2020 gegenüber dem Vorjahr um fast 23% auf knapp 73 Milliarden Euro (Statista, 2022a). Auch innerhalb des B2B E-Commerce wird in den kommenden Jahren ein enormes Umsatzwachstum erwartet, in den USA wird der Umsatz im Jahr 2025 auf 2,5 Billionen steigen, dies entspricht einer Wachstumsrate von rund 11% p.a. (Statista, 2022b).</p>
+<p>Der Vertrieb und Verkauf von Waren über das Internet ist zu einem wichtigen Vertriebskanal der modernen, digitalisierten Wirtschaft geworden. Diese Entwicklung wurde durch die Covid19-Pandemie weiter verstärkt. So stiegen in Deutschland die im B2C E-Commerce erzielten Umsätze im Jahr 2020 gegenüber dem Vorjahr um fast 23% auf knapp 73 Milliarden Euro (Statista, 2022a). Auch innerhalb des B2B E-Commerce wird in den kommenden Jahren ein enormes Umsatzwachstum erwartet, in den USA wird der Umsatz im Jahr 2025 auf 2,5 Billionen steigen, dies entspricht einer Wachstumsrate von rund 11% p.a. (Statista, 2022b).</p>
 </section>
 <section id="project-motivation" class="level3">
 <h3 class="anchored" data-anchor-id="project-motivation">Project Motivation</h3>
-<p>Während die Umsätze im E-Commerce Jahr für Jahr steigen, sind die Margen im Onlinehandel für einen Großteil der Händler marginal. Dennoch müssen Unternehmen hohe Investitionen in das Online-Geschäft tätigen, um Umsätze im stark umkämpften Online-Geschäft zu erzielen (Alvarez &amp; Marsal, 2021). Damit sich diese nachhaltig für das Unternehmen lohnen, müssen langfristig verlässliche Gewinne erwirtschaftet werden. Dieses Ziel kann nur erreicht werden, wenn externe Risiken für das Unternehmen minimiert und intern strategisch richtige Entscheidungen zur Portfolioerweiterung getroffen werden. Im folgenden soll ein Datensatz, bestehend aus Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Königreich analysiert werden, um Abhängigkeiten von bestimmten 1.) Ländern oder Regionen 2) Kunden 3) Produkten bzw. Produktgruppen zu identifizieren und 4) Potenziale für Umsatzwachstum / Gewinnsteigerung zu entdecken.</p>
+<p>Während die Umsätze im E-Commerce Jahr für Jahr steigen, sind die Margen im Onlinehandel für einen Großteil der Händler marginal. Dennoch müssen Unternehmen hohe Investitionen in das Online-Geschäft tätigen, um Umsätze im stark umkämpften Online-Geschäft zu erzielen (vgl. Alvarez &amp; Marsal, 2021). Damit sich diese nachhaltig für das Unternehmen lohnen, müssen langfristig verlässliche Gewinne erwirtschaftet werden. Dieses Ziel kann nur erreicht werden, wenn externe Risiken für das Unternehmen minimiert und intern strategisch richtige Entscheidungen zur Portfolioerweiterung getroffen werden. Im Folgenden soll ein Datensatz, bestehend aus Transaktionsdaten eines E-Commerce Unternehmens aus dem Vereinigten Königreich, analysiert werden, um Abhängigkeiten von bestimmten 1.) Ländern oder Regionen zu identifizieren und 2) Potenziale für Umsatzwachstum / Gewinnsteigerung zu entdecken.</p>
 </section>
 <section id="general-research-question" class="level3">
 <h3 class="anchored" data-anchor-id="general-research-question">General Research Question</h3>
@@ -66,14 +66,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-description" class="level3">
 <h3 class="anchored" data-anchor-id="data-description">Data Description</h3>
-<p>Der Datensatz zeigt Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Koenigreich. Die Daten wurden zwischen dem 01.12.2010 und dem 09.12.2011 erfasst.</p>
+<p>Der Datensatz zeigt Transaktionsdaten eines E-Commerce Unternehmen aus dem Vereinigten Königreich. Die Daten wurden zwischen dem 01.12.2010 und dem 09.12.2011 erfasst.</p>
 <p>Jeder Beobachtungswert stellt innerhalb des Datensatzes eine Transaktion dar, wobei mehreren Transaktionen eine Rechnung(snummer) zugeteilt werden kann.</p>
-<p>Der Datensatz enthaelt in der ursprünglichen Version 541909 Beobachtungswerte und 8 Spalten.</p>
-<p>Es wurden keine Informationen dazu bereitgestellt, wie die Daten erhoben wurden. Es wird davon ausgegangen, dass sie aus dem CRM oder E-Commerce Backend des Shops stammen.</p>
+<p>Der Datensatz enthält in der ursprünglichen Version 541909 Beobachtungswerte und 8 Spalten.</p>
+<p>Es wurden keine Informationen dazu bereitgestellt, wie die Daten erhoben wurden. Es wird davon ausgegangen, dass die Daten aus dem CRM oder E-Commerce Backend des Shops stammen.</p>
 </section>
 <section id="data-cleaning-process" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-process">Data cleaning process</h3>
-<p>Um die Daten zu säubern und für die weitere Verarbeitung vorzubereiten, mussten einige Anpassungen vorgenommen werden. Neben den offensichlichen Anpassungen wie dem Entfernen von fehlenden Werten und Leerzeilen wurden Zeilen entfernt, in welchen die Produktnummer darauf hinwies, dass es sich nicht um eine relevante Transaktion, sondern beispielsweise um Testtransaktionen oder Postsendungen handelt. Außerdem wurde der Gesamtpreis pro Transaktion als weitere Variable hinzugefügt. Darüber hinaus wurden Zeilen ohne Kundennummer oder Beschreibung entfernt, da dies auf eine nicht korrekte Transaktion hinweist.</p>
+<p>Um die Daten zu säubern und für die weitere Verarbeitung vorzubereiten, mussten einige Anpassungen vorgenommen werden. Neben Anpassungen wie dem Entfernen von fehlenden Werten und Leerzeilen wurden Zeilen entfernt, in welchen die Produktnummer darauf hinwies, dass es sich nicht um eine relevante Transaktion (d.h. Kauf eines Produkts), sondern beispielsweise um Testtransaktionen, Postsendungen oder Kosten für das Unternehmen handelt. Außerdem wurde der Gesamtpreis pro Transaktion (“TotalPrice”) als weitere Variable hinzugefügt (es ist das Produkt aus “Quantity” und “UnitPrice”). Darüber hinaus wurden Zeilen ohne Kundennummer oder Beschreibung entfernt, da dies auf eine nicht korrekte Transaktion hinweist.</p>
 </section>
 <section id="data-dictionary-definition-of-key-variables" class="level3">
 <h3 class="anchored" data-anchor-id="data-dictionary-definition-of-key-variables">Data Dictionary / Definition of key variables</h3>
@@ -152,22 +152,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="eda" class="level2">
-<h2 class="anchored" data-anchor-id="eda">Eda</h2>
+<h2 class="anchored" data-anchor-id="eda">EDA</h2>
 <section id="h1-die-einnahmen-des-online-shops-werden-maßgeblich-vom-land-beeinflusst-in-dem-das-unternehmen-ansässig-ist." class="level4">
 <h4 class="anchored" data-anchor-id="h1-die-einnahmen-des-online-shops-werden-maßgeblich-vom-land-beeinflusst-in-dem-das-unternehmen-ansässig-ist.">H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.</h4>
 <section id="chart-beschreibung" class="level5">
 <h5 class="anchored" data-anchor-id="chart-beschreibung">Chart Beschreibung</h5>
-<p>Um die Response Variable für die Hypothese H1 zu visualisieren, werden die im jeweiligen Land erzielten Umsätze für die Top 10 Ländern gezeigt. Als Visualisierungsart wird ein Säulendiagramm verwendet, da sich so die Verhältnismäßigkeiten gut erkennen lassen. Durch das Eliminieren der horizontalen Gridlines wird Clutter minimiert. Der Fokus wird durch die Sortierung der Balken von lang nach kurz auf das für die Hypothese relevante Hauptmerkmal gelenkt. Es wurde zugunsten des Designs ein aussagekräftiger Titel sowie Untertitel gewählt und das Design bewusst schlicht gehalten.</p>
+<p>Um die Response Variable für die Hypothese H1 zu visualisieren, werden die im jeweiligen Land erzielten Umsätze für die Top 10 Ländern gezeigt. Als Visualisierungsart wird ein Säulendiagramm verwendet, da sich so die Verhältnismäßigkeiten gut erkennen lassen. Durch das Eliminieren der Gridlines wird Clutter minimiert. Der Fokus wird durch die Sortierung der Balken von lang nach kurz auf das für die Hypothese relevante Hauptmerkmal gelenkt. Es wurde zugunsten des Designs ein aussagekräftiger Titel sowie Untertitel gewählt und das Design bewusst schlicht gehalten.</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 
-<div id="altair-viz-653072698e7c4c5d90f136cdf89aa4d1"></div>
+<div id="altair-viz-94c21e2eecc346cf88a3aa609fb0f1ff"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-653072698e7c4c5d90f136cdf89aa4d1") {
-      outputDiv = document.getElementById("altair-viz-653072698e7c4c5d90f136cdf89aa4d1");
+    if (outputDiv.id !== "altair-viz-94c21e2eecc346cf88a3aa609fb0f1ff") {
+      outputDiv = document.getElementById("altair-viz-94c21e2eecc346cf88a3aa609fb0f1ff");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -213,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelColor": "grey", "labelFont": "Arial", "labelFontSize": 14, "titleColor": "grey", "titleFont": "Arial", "titleFontSize": 12, "titleFontWeight": "normal"}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "data": {"name": "data-5d73b6042694ee42c59f648223328e83"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["United Kingdom"]}}, "value": "grey"}, "x": {"axis": {"grid": false, "title": "Country", "titleAnchor": "start"}, "field": "Country", "sort": "-y", "type": "nominal"}, "y": {"axis": {"grid": false, "labelAngle": 0, "title": "Percentage of total turnover", "titleAnchor": "end"}, "field": "Percentage", "type": "quantitative"}}, "height": 150, "title": {"text": ["Turnover by country"], "subtitle": ["How often orders were placed by country (percentage)"]}, "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5d73b6042694ee42c59f648223328e83": [{"Country": "United Kingdom", "Percentage": 82.25251078626172}, {"Country": "Netherlands", "Percentage": 3.4269302462242863}, {"Country": "EIRE", "Percentage": 3.041030413012024}, {"Country": "Germany", "Percentage": 2.425252915399936}, {"Country": "France", "Percentage": 2.194983815338218}, {"Country": "Australia", "Percentage": 1.6552300622423928}, {"Country": "Switzerland", "Percentage": 0.6269184238518369}, {"Country": "Spain", "Percentage": 0.6255554105449092}, {"Country": "Belgium", "Percentage": 0.44321155078814917}, {"Country": "Japan", "Percentage": 0.42818310508727553}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelColor": "grey", "labelFont": "Arial", "labelFontSize": 14, "titleColor": "grey", "titleFont": "Arial", "titleFontSize": 12, "titleFontWeight": "normal"}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "data": {"name": "data-5d73b6042694ee42c59f648223328e83"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["United Kingdom"]}}, "value": "grey"}, "x": {"axis": {"grid": false, "title": "Country", "titleAnchor": "start"}, "field": "Country", "sort": "-y", "type": "nominal"}, "y": {"axis": {"grid": false, "labelAngle": 0, "title": "Percentage of total revenue", "titleAnchor": "end"}, "field": "Percentage", "type": "quantitative"}}, "height": 200, "title": {"text": ["Revenue by country"], "subtitle": ["How often orders were placed by country (percentage)"]}, "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5d73b6042694ee42c59f648223328e83": [{"Country": "United Kingdom", "Percentage": 82.25251078626172}, {"Country": "Netherlands", "Percentage": 3.4269302462242863}, {"Country": "EIRE", "Percentage": 3.041030413012024}, {"Country": "Germany", "Percentage": 2.425252915399936}, {"Country": "France", "Percentage": 2.194983815338218}, {"Country": "Australia", "Percentage": 1.6552300622423928}, {"Country": "Switzerland", "Percentage": 0.6269184238518369}, {"Country": "Spain", "Percentage": 0.6255554105449092}, {"Country": "Belgium", "Percentage": 0.44321155078814917}, {"Country": "Japan", "Percentage": 0.42818310508727553}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
@@ -223,17 +223,17 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="h2-die-wahrscheinlichkeit-dass-ein-kunde-ein-produkt-zurückgibt-sinkt-mit-der-anzahl-der-getätigten-käufe.">H2: Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe.</h4>
 <section id="chart-beschreibung-1" class="level5">
 <h5 class="anchored" data-anchor-id="chart-beschreibung-1">Chart Beschreibung</h5>
-<p>Die Response Variable für Hypothese H3 (Rückgabewahrscheinlichkeit relativ zur Anzahl der getätigten Käufe je Kunde) wird durch ein Streudiagram visualisiert, da sich so die Beziehung zwischen den beiden Variablen visuell gut darstellen lässt. Clutter wurde wieder so weit wie möglich eliminiert. Hier ist ein Untertitel für das Verständnis nicht vonnöten. Der Titel ist für den Fokus des Betrachters ausreichend. Das Design ist schlicht und kommt mit wenigen Farben aus.</p>
+<p>Die Response Variable für Hypothese H2 (Rückgabewahrscheinlichkeit relativ zur Anzahl der getätigten Käufe je Kunde) wird durch ein Streudiagram visualisiert, da sich so die Beziehung zwischen den beiden Variablen visuell gut darstellen lässt. Clutter wurde wieder so weit wie möglich eliminiert. Hier ist ein Untertitel für das Verständnis nicht vonnöten. Der Titel ist für den Fokus des Betrachters ausreichend. Das Design ist schlicht und monochrom.</p>
 <div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 
-<div id="altair-viz-b3c0b478a5bc46fb8348f2e7997b7619"></div>
+<div id="altair-viz-d782e2ddf4b54b58911f53bc0d686c96"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b3c0b478a5bc46fb8348f2e7997b7619") {
-      outputDiv = document.getElementById("altair-viz-b3c0b478a5bc46fb8348f2e7997b7619");
+    if (outputDiv.id !== "altair-viz-d782e2ddf4b54b58911f53bc0d686c96") {
+      outputDiv = document.getElementById("altair-viz-d782e2ddf4b54b58911f53bc0d686c96");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -292,17 +292,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="h1-visualizations">H1 Visualizations</h3>
 <section id="chart-beschreibung-2" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-2">Chart Beschreibung</h4>
-<p>Um zuerst eine Übersicht dem Zuhörer zu ermöglichen über den aktuellen Kenntnisstand werden die Umsätze nach Regionen / Ländern gezeigt. Hierfür werden die Regionen aufgrund der hohen Anzahl auf zehn begrenzt, um die Übersichtlichkeit beibehalten zu können. Als Visualisierungsart wird dabei ein Säulendiagramm verwendet, um die Verhältnisse der kategorialen (Land) und nummerischen Variable (Umsatz) zu visualisieren. Das Säulendiagramm wurde dabei gewählt, da hier sehr gut mehrere (absolute) Werte verglichen werden können.<br> Innerhalb der Visualisierung wird Clutter eleminiert indem Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus (im Kontext von Focus Attention) gezielt mit (hue) Farbe auf den Umsatz des Landes UK gelegt, da die Problematik auf der Verteilung und dem großen Anteil Uks liegt. Zudem wird im Kontext des Designs der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, grau und dunkelrot) gelegt.</p>
+<p>Um dem Betrachter zunächst eine Übersicht über den aktuellen Kenntnisstand zu geben, werden die Umsätze nach Regionen / Ländern gezeigt. Hierfür werden die Regionen aufgrund deren hohen Anzahl auf zehn begrenzt, um die Übersichtlichkeit beibehalten zu können. Als Visualisierungsart wird dabei ein Säulendiagramm verwendet, um die Verhältnisse der kategorialen (Land) und numerischen Variable (Umsatz) zu visualisieren. Das Säulendiagramm wurde dabei gewählt, da es zum Vergleich mehrerer (absoluter) Werte gut geeignet ist.<br> Innerhalb der Visualisierung wird Clutter eliminiert indem Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus (im Kontext von Focus Attention) gezielt mit Farbe (hue) auf den Umsatz des Landes UK gelegt, da die Problematik auf der Verteilung und dem großen Anteil von UK liegt. Zudem wird im Kontext des Designs der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, Grau und Dunkelrot) gelegt.</p>
 <div class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 
-<div id="altair-viz-4cd62f5c430342f2b282470d369a0fd5"></div>
+<div id="altair-viz-8e24f2ab71534034ba2237b58af38a9e"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4cd62f5c430342f2b282470d369a0fd5") {
-      outputDiv = document.getElementById("altair-viz-4cd62f5c430342f2b282470d369a0fd5");
+    if (outputDiv.id !== "altair-viz-8e24f2ab71534034ba2237b58af38a9e") {
+      outputDiv = document.getElementById("altair-viz-8e24f2ab71534034ba2237b58af38a9e");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -348,24 +348,24 @@ ul.task-list li input[type="checkbox"] {
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelColor": "grey", "labelFont": "Arial", "labelFontSize": 14, "titleColor": "grey", "titleFont": "Arial", "titleFontSize": 16, "titleFontWeight": "normal"}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"mark": "bar", "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["UK"]}}, "value": "grey"}, "x": {"axis": {"labelAngle": 0, "title": "Country", "titleAnchor": "start"}, "field": "Country", "sort": ["UK", "Netherlands", "Ireland", "France", "Germany", "Australia", "Spain", "Switzerland", "Belgium", "Sweden"], "type": "nominal"}, "y": {"axis": {"grid": false, "labelAngle": 0, "title": "Revenue in (thousand) pound", "titleAnchor": "end", "values": [1000, 3000, 5000, 7000]}, "field": "TotalPrice", "type": "quantitative"}}, "height": 350, "title": {"text": ["Top ten countries with the highest sales"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 650}], "data": {"name": "data-592439022cf29275f48a88edd3922aa4"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-592439022cf29275f48a88edd3922aa4": [{"Quantity": 3816479, "UnitPrice": 992815.14, "CustomerID": 5291264214.0, "TotalPrice": 6507.62491, "Country": "UK"}, {"Quantity": 192552, "UnitPrice": 5490.54, "CustomerID": 32371577.0, "TotalPrice": 271.75152, "Country": "Netherlands"}, {"Quantity": 132244, "UnitPrice": 28787.88, "CustomerID": 105386179.0, "TotalPrice": 244.5811, "Country": "Ireland"}, {"Quantity": 112343, "UnitPrice": 24383.38, "CustomerID": 110766039.0, "TotalPrice": 193.77496, "Country": "Germany"}, {"Quantity": 105412, "UnitPrice": 21159.25, "CustomerID": 99339128.0, "TotalPrice": 175.18026999999998, "Country": "France"}, {"Quantity": 83643, "UnitPrice": 3435.27, "CustomerID": 15655741.0, "TotalPrice": 136.9225, "Country": "Australia"}, {"Quantity": 29681, "UnitPrice": 5326.6, "CustomerID": 23351601.0, "TotalPrice": 51.8594, "Country": "Switzerland"}, {"Quantity": 26356, "UnitPrice": 7920.4, "CustomerID": 30695528.0, "TotalPrice": 51.50322, "Country": "Spain"}, {"Quantity": 25270, "UnitPrice": 716.01, "CustomerID": 4427005.0, "TotalPrice": 35.53672, "Country": "Japan"}, {"Quantity": 21791, "UnitPrice": 5826.09, "CustomerID": 23336417.0, "TotalPrice": 35.382529999999996, "Country": "Belgium"}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelColor": "grey", "labelFont": "Arial", "labelFontSize": 14, "titleColor": "grey", "titleFont": "Arial", "titleFontSize": 16, "titleFontWeight": "normal"}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"mark": "bar", "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["UK"]}}, "value": "grey"}, "x": {"axis": {"labelAngle": 0, "title": "Country", "titleAnchor": "start"}, "field": "Country", "sort": ["UK", "Netherlands", "Ireland", "France", "Germany", "Australia", "Spain", "Switzerland", "Belgium", "Sweden"], "type": "nominal"}, "y": {"axis": {"grid": false, "labelAngle": 0, "title": "Revenue in pounds (thousand)", "titleAnchor": "end", "values": [1000, 3000, 5000, 7000]}, "field": "TotalPrice", "type": "quantitative"}}, "height": 350, "title": {"text": ["Top ten countries with the highest sales"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 650}], "data": {"name": "data-592439022cf29275f48a88edd3922aa4"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-592439022cf29275f48a88edd3922aa4": [{"Quantity": 3816479, "UnitPrice": 992815.14, "CustomerID": 5291264214.0, "TotalPrice": 6507.62491, "Country": "UK"}, {"Quantity": 192552, "UnitPrice": 5490.54, "CustomerID": 32371577.0, "TotalPrice": 271.75152, "Country": "Netherlands"}, {"Quantity": 132244, "UnitPrice": 28787.88, "CustomerID": 105386179.0, "TotalPrice": 244.5811, "Country": "Ireland"}, {"Quantity": 112343, "UnitPrice": 24383.38, "CustomerID": 110766039.0, "TotalPrice": 193.77496, "Country": "Germany"}, {"Quantity": 105412, "UnitPrice": 21159.25, "CustomerID": 99339128.0, "TotalPrice": 175.18026999999998, "Country": "France"}, {"Quantity": 83643, "UnitPrice": 3435.27, "CustomerID": 15655741.0, "TotalPrice": 136.9225, "Country": "Australia"}, {"Quantity": 29681, "UnitPrice": 5326.6, "CustomerID": 23351601.0, "TotalPrice": 51.8594, "Country": "Switzerland"}, {"Quantity": 26356, "UnitPrice": 7920.4, "CustomerID": 30695528.0, "TotalPrice": 51.50322, "Country": "Spain"}, {"Quantity": 25270, "UnitPrice": 716.01, "CustomerID": 4427005.0, "TotalPrice": 35.53672, "Country": "Japan"}, {"Quantity": 21791, "UnitPrice": 5826.09, "CustomerID": 23336417.0, "TotalPrice": 35.382529999999996, "Country": "Belgium"}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
 </section>
 <section id="chart-beschreibung-3" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-3">Chart Beschreibung</h4>
-<p>Anschließend soll nun dargestellt werden, wie die tatsächliche prozentuale Umsatzverteilung zwischen UK und anderen Ländern bzw. dem Rest der Welt ist, da im vorangegangen Chart bereits zu erkennen war, dass ein sehr großer Anteil auf Uk fällt (Länder neben UK werden zusammengefasst, da die Anteile sehr klein sind - hierdurch wird die Übersichtlichkeit gewährleistet). Als Visualisierungsart wird dabei ein Kreisdiagramm verwendet, um die Verhältnisse der Umsatzverteilung darzustellen. Das Diagramm wird verwendet da nur zwei Ausprägungen vorhanden sind und so eine Interpretation leicht für den Nutzer möglich ist. Um den Chart zu optimieren wird Clutter eleminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Zudem wird die separate Legende entfernt und in den Chart integriert. Hier wird durch den farblichen Text, welcher die zwei Kategorien beschreibt die Legende ersetzt (Closure). Durch die Nähe des Textes an den Kategorien des Chartes(Proximity) werden die Kategorien mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) und (shape) Form, sowie Breite (Width) des Textes auf den aktuellen Stand des Umsatzanteils des Landes UK gelegt.</p>
+<p>Anschließend soll nun dargestellt werden, wie die tatsächliche prozentuale Umsatzverteilung zwischen UK und den anderen Ländern ist, da im vorangegangen Chart bereits zu erkennen war, dass ein sehr großer Anteil auf UK fällt (Länder neben UK werden zusammengefasst, da die Anteile sehr klein sind - hierdurch wird die Übersichtlichkeit gewährleistet). Als Visualisierungsart wird dabei ein Kreisdiagramm verwendet, um die Verhältnisse der Umsatzverteilung darzustellen. Das Diagramm wird verwendet, da nur zwei Ausprägungen vorhanden sind und so eine Interpretation leicht für den Nutzer möglich ist. Um den Chart zu optimieren wird Clutter eliminiert indem Hilfs- und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Zudem wird die separate Legende entfernt und in den Chart integriert. Hier wird durch den farblichen Text, welcher die zwei Kategorien beschreibt, die Legende ersetzt (Closure). Durch die Nähe des Textes an den Kategorien des Chartes (Proximity) werden die Kategorien mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit Farbe (hue, rot) und Form (shape), sowie Breite (Width) des Textes auf den aktuellen Stand des Umsatzanteils des Landes UK gelegt.</p>
 <div class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 
-<div id="altair-viz-81dba5b34cbb413c80faf5c5a88f6ae0"></div>
+<div id="altair-viz-84de5d9ee36b403eb338fb9ba215d99b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-81dba5b34cbb413c80faf5c5a88f6ae0") {
-      outputDiv = document.getElementById("altair-viz-81dba5b34cbb413c80faf5c5a88f6ae0");
+    if (outputDiv.id !== "altair-viz-84de5d9ee36b403eb338fb9ba215d99b") {
+      outputDiv = document.getElementById("altair-viz-84de5d9ee36b403eb338fb9ba215d99b");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -411,24 +411,24 @@ ul.task-list li input[type="checkbox"] {
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelFont": "Arial", "labelFontSize": 14, "titleFont": "Arial", "titleFontSize": 16}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"data": {"name": "data-f06da2a50347abd053a70f6745821e11"}, "mark": {"type": "arc", "outerRadius": 130}, "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["United Kingdom"]}}, "value": "grey"}, "theta": {"field": "TotalPrice", "type": "quantitative"}}, "height": 350, "title": {"text": ["Distribution of revenue between the UK and the rest of the world"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 550}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 400}, "encoding": {"text": {"value": "United Kingdom (UK)"}, "x": {"value": 35}, "y": {"value": 50}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Revenue share: 85%"}, "x": {"value": 35}, "y": {"value": 70}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 400}, "encoding": {"text": {"value": "Rest of the world"}, "x": {"value": 385}, "y": {"value": 50}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Revenue share: 15%"}, "x": {"value": 385}, "y": {"value": 70}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-f06da2a50347abd053a70f6745821e11": [{"Country": "United Kingdom", "TotalPrice": 6507.62491}, {"Country": "Rest of the world", "TotalPrice": 1426.1859999999988}], "empty": [{}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelFont": "Arial", "labelFontSize": 14, "titleFont": "Arial", "titleFontSize": 16}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"data": {"name": "data-f06da2a50347abd053a70f6745821e11"}, "mark": {"type": "arc", "outerRadius": 130}, "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Country", "oneOf": ["United Kingdom"]}}, "value": "grey"}, "theta": {"field": "TotalPrice", "type": "quantitative"}}, "height": 350, "title": {"text": ["Distribution of revenue between the UK and the other countries"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 550}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 400}, "encoding": {"text": {"value": "United Kingdom (UK)"}, "x": {"value": 35}, "y": {"value": 50}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Revenue share: 85%"}, "x": {"value": 35}, "y": {"value": 70}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 400}, "encoding": {"text": {"value": "Other countries"}, "x": {"value": 385}, "y": {"value": 50}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Revenue share: 15%"}, "x": {"value": 385}, "y": {"value": 70}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-f06da2a50347abd053a70f6745821e11": [{"Country": "United Kingdom", "TotalPrice": 6507.62491}, {"Country": "Rest of the world", "TotalPrice": 1426.1859999999988}], "empty": [{}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
 </section>
 <section id="chart-beschreibung-4" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-4">Chart Beschreibung</h4>
-<p>Neben der gesamten Umsatzverteilung soll auch der Verlauf dargestellt werden, um mögliche Rückgänge / Zuwächse darzustellen. Als Visualisierungsart wird dabei ein Liniendiagramm verwendet, um das Umsatz-Verhältnis von UK über die Monate darzustellen, da der Umsatzanteil so hoch ist wird nicht der Rest der Welt angezeigt (aufgrund der Skalierung des Graphs - der Abstand der Linien wäre zu groß und würde die leichte Übersicht stören). Durch die Nähe des Textes an dem letzten Datenpunkt des Chartes (Proximity) wird die (Text-)Information mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) auf den Text und somit auf den letzten Stand des Umsatzanteils des Landes UK gelegt. Der Chart nutzt das einheitliche Farbdesign der vorherigen Charts und ist möglichst übersichtlich gestaltet, indem nur die nötigsten Informationen dargestellt werden.</p>
+<p>Neben der gesamten Umsatzverteilung soll auch der Verlauf dargestellt werden, um mögliche Rückgänge / Zuwächse darzustellen. Als Visualisierungsart wird dabei ein Liniendiagramm verwendet, um das Umsatz-Verhältnis von UK über die Monate darzustellen. Da der Umsatzanteil so hoch ist, werden die restlichen Ländern nicht angezeigt (aufgrund der Skalierung des Graphs wäre der Abstand der Linien zu groß und würde die Übersicht erschweren). Durch die Nähe des Textes an dem letzten Datenpunkt des Chartes (Proximity) wird die (Text-)Information mit der Schrift zusätzlich assoziiert. Der Fokus wird gezielt mit (hue) Farbe (rot) auf den Text und somit auf den letzten Stand des Umsatzanteils des Landes UK gelegt. Der Chart nutzt das einheitliche Farbdesign der vorherigen Charts und ist möglichst übersichtlich gestaltet, indem nur die nötigsten Informationen dargestellt werden.</p>
 <div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 
-<div id="altair-viz-8a6580d667954851a8649dcf45c3a0a4"></div>
+<div id="altair-viz-306d429545ea4abda10299a1938c1d64"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8a6580d667954851a8649dcf45c3a0a4") {
-      outputDiv = document.getElementById("altair-viz-8a6580d667954851a8649dcf45c3a0a4");
+    if (outputDiv.id !== "altair-viz-306d429545ea4abda10299a1938c1d64") {
+      outputDiv = document.getElementById("altair-viz-306d429545ea4abda10299a1938c1d64");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -481,17 +481,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="chart-beschreibung-5" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-5">Chart Beschreibung</h4>
-<p>Nun soll das Ziel kommuniziert werden, die Reduktion des Umsatzanteils von UK durch die Erhöhung der Umsätze in den Ländern außerhalb des Vereinigten Königreichs. Hierfür wird erneut auf die anfängliche Übersicht zurückgegriffen mit der Umsatzverteilung, allerdings nicht mit absoluten Werten sondern prozentualen Umsatzanteil. Wie in dem ersten Graph wird Clutter eleminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus gezielt mit (hue) Farbe auf den Umsatz des Landes UK gelegt zudem wird mit (added marks / spatial position)einer Textbeschreibung in der Visualisierung ein Fokus auf die Erklärung der Ziele gelegt, um mögliche Verwirrungen und Unklarheiten zu beseitigen. Im Kontext des Designs wird der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, grau und dunkelrot) gesetzt. Zudem werden Ziellinien hinzugefügt, um die Ziele des Umsatzanteils zu definieren.</p>
+<p>Nun soll das Ziel kommuniziert werden, die Reduktion des Umsatzanteils von UK durch die Erhöhung der Umsätze in den Ländern außerhalb des Vereinigten Königreichs. Hierfür wird erneut auf die anfängliche Übersicht mit der Umsatzverteilung zurückgegriffen, allerdings nicht mit absoluten Werten, sondern prozentualem Umsatzanteil. Wie im ersten Graph wird Clutter eliminiert indem Hilfs und Gridlinien, sowie die Rahmen rechts und oben entfernt werden (Closure). Außerdem wird der Fokus gezielt mit Farbe (hue) auf den Umsatz des Landes UK gelegt. Zudem wird mit (added marks / spatial position) einer Textbeschreibung in der Visualisierung ein Fokus auf die Erklärung der Ziele gelegt, um möglichen Verwirrungen und Unklarheiten vorzubeugen. Im Kontext des Designs wird der Schwerpunkt auf ein schlichtes Design mit wenigen Farben (Schwarz, Grau und Dunkelrot) gesetzt. Zudem werden Ziellinien hinzugefügt, um die Ziele des Umsatzanteils zu definieren.</p>
 <div class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display" data-execution_count="12">
 
-<div id="altair-viz-57c3ad5e942b49ce991eaa21972c9775"></div>
+<div id="altair-viz-91126c523092404aa51a696771cf5dff"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-57c3ad5e942b49ce991eaa21972c9775") {
-      outputDiv = document.getElementById("altair-viz-57c3ad5e942b49ce991eaa21972c9775");
+    if (outputDiv.id !== "altair-viz-91126c523092404aa51a696771cf5dff") {
+      outputDiv = document.getElementById("altair-viz-91126c523092404aa51a696771cf5dff");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -548,17 +548,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="h2-visualizations">H2 Visualizations</h2>
 <section id="chart-beschreibung-6" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-6">Chart Beschreibung</h4>
-<p>Um einen klaren Fokus zu schaffen, habe ich den Rahmen des Diagramms entfernt und die Legende durch den Text im Chart ersetzt. Das besonders hervorgehobene Stück ist durch ein leuchtendes Rot hervorgehoben und zieht so die Aufmerksamkeit des Betrachters auf sich. Dabei habe ich bei der Gestaltung auf Einfachheit geachtet und das einheitliche Grau-Rot Farbschema verwendet.</p>
+<p>Um einen klaren Fokus zu schaffen, wurde der Rahmen des Diagramms entfernt und die Legende durch den Text im Chart ersetzt. Das besonders hervorgehobene Stück ist durch ein leuchtendes Rot hervorgehoben und zieht so die Aufmerksamkeit des Betrachters auf sich. Dabei wurde bei der Gestaltung auf Einfachheit geachtet und ein einheitliches, Grau-Rotes Farbschema verwendet.</p>
 <div class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display" data-execution_count="14">
 
-<div id="altair-viz-4959efe0cf1146d8b2aa9a2060aebf69"></div>
+<div id="altair-viz-d463bf1143404e3f83762dd7906def5c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4959efe0cf1146d8b2aa9a2060aebf69") {
-      outputDiv = document.getElementById("altair-viz-4959efe0cf1146d8b2aa9a2060aebf69");
+    if (outputDiv.id !== "altair-viz-d463bf1143404e3f83762dd7906def5c") {
+      outputDiv = document.getElementById("altair-viz-d463bf1143404e3f83762dd7906def5c");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -604,24 +604,24 @@ ul.task-list li input[type="checkbox"] {
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelFont": "Arial", "labelFontSize": 14, "titleFont": "Arial", "titleFontSize": 16}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"data": {"name": "data-34b129607b95395cb8d1a6d2e6d7887a"}, "mark": {"type": "arc", "angle": 270, "outerRadius": 130}, "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Category", "oneOf": ["Returns"]}}, "value": "grey"}, "theta": {"field": "Count", "type": "quantitative"}}, "height": 350, "title": {"text": ["Distribution of returns versus keept purchases"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 550}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Returns: 2%"}, "x": {"value": 55}, "y": {"value": 173}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Purchases: 98%"}, "x": {"value": 410}, "y": {"value": 173}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-34b129607b95395cb8d1a6d2e6d7887a": [{"Category": "Purchases", "Count": 374349}, {"Category": "Returns", "Count": 8161}], "empty": [{}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "strokeWidth": 0}, "axis": {"labelFont": "Arial", "labelFontSize": 14, "titleFont": "Arial", "titleFontSize": 16}, "title": {"anchor": "start", "color": "black", "font": "Arial", "fontSize": 22}}, "layer": [{"data": {"name": "data-34b129607b95395cb8d1a6d2e6d7887a"}, "mark": {"type": "arc", "angle": 270, "outerRadius": 130}, "encoding": {"color": {"condition": {"value": "darkred", "test": {"field": "Category", "oneOf": ["Returns"]}}, "value": "grey"}, "theta": {"field": "Count", "type": "quantitative"}}, "height": 350, "title": {"text": ["Distribution: Returns versus kept purchases"], "subtitle": ["In the period from 01.12.2010 to 30.11.2011"]}, "width": 550}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "darkred", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Returns: 2%"}, "x": {"value": 55}, "y": {"value": 173}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "bottom", "color": "grey", "fontSize": 14, "fontWeight": 700}, "encoding": {"text": {"value": "Purchases: 98%"}, "x": {"value": 410}, "y": {"value": 173}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-34b129607b95395cb8d1a6d2e6d7887a": [{"Category": "Purchases", "Count": 374349}, {"Category": "Returns", "Count": 8161}], "empty": [{}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
 </section>
 <section id="chart-beschreibung-7" class="level4">
 <h4 class="anchored" data-anchor-id="chart-beschreibung-7">Chart Beschreibung</h4>
-<p>Um einen klaren Fokus auf die Datenpunkte zu schaffen, habe ich die Achsen leicht ausgegraut und die Labels nah an den Achsen positioniert, um zu verdeutlichen, dass sie zusammengehören. Durch die Entfernung des Rahmens und das Ausblenden des Grids wird die Ablenkung minimiert und der Betrachter kann sich voll und ganz auf die Datenpunkte konzentrieren. Dies erleichtert das Verständnis der Daten und verbessert die visuelle Übersicht.</p>
+<p>Um einen klaren Fokus auf die Datenpunkte zu schaffen, wurden die Achsen leicht ausgegraut und die Labels nahe an den Achsen positioniert, um zu verdeutlichen, dass sie zusammen gehören. Durch die Entfernung des Rahmens und das Ausblenden des Grids wird die Ablenkung minimiert und der Betrachter kann sich voll und ganz auf die Datenpunkte konzentrieren. Dies erleichtert das Verständnis der Daten und verbessert die visuelle Übersicht.</p>
 <div class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display" data-execution_count="16">
 
-<div id="altair-viz-05c910535eb04dce85dc91879a775b0c"></div>
+<div id="altair-viz-cd886be014d64ab2b000bf60b0361fa7"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-05c910535eb04dce85dc91879a775b0c") {
-      outputDiv = document.getElementById("altair-viz-05c910535eb04dce85dc91879a775b0c");
+    if (outputDiv.id !== "altair-viz-cd886be014d64ab2b000bf60b0361fa7") {
+      outputDiv = document.getElementById("altair-viz-cd886be014d64ab2b000bf60b0361fa7");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -676,11 +676,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Damit die Forschungsfrage „Wie können Abhängigkeiten für den E-Commerce Shop langfristig reduziert werden und welche Maßnahmen können zur langfristigen Gewinnmaximierung getroffen werden?“ beantwortet werden kann werden die zwei Hypothesen „Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist“ und „Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe“ genauer betrachtet. Hypothese H1 fokussiert sich auf die Reduktion der Abhängigkeiten, hierbei wird der Zusammenhang zwischen dem Unternehmensstandort (Vereinigten Königreich) und dem Umsatz untersucht. Der Umsatzanteil des Vereinigten Königreiches beträgt 85% somit ist ein signifikanter Anteil des Umsatzes vom VK anhängig. Die große Umsatzabhängigkeit des Unternehmens von einem Land führt zu einem hohen Risiko, da politische Entscheidungen, wirtschaftliche Schwankungen oder sonstige lokale Einflüsse zu einem starken Umsatzrückgang beitragen könnten. Die Hypothese H2 fokussiert sich auf die Maximierung des Gewinns indem diese die Zusammenhänge zwischen Rückgaben und der Häufigkeit der Kundeneinkäufe untersucht. Auffällig ist hierbei, dass die Rückgaben bei einer steigenden Anzahl an Käufen sinkt. Aufgrund der generell niedrigen Retourenrate von rund 2% sind die Retouren kein unternehmensspezifisches Problem (vgl. Repko 2022). ## Limitations and Data issues Die Analyse der Hypothese H1 bezieht sich nur auf (Transaktions-)Daten der letzten zwölf Monate, wodurch der begrenzte Zeitraum eine Verzerrung der eigentlichen Umsatztreiber Wiederspiegeln könnte. Deshalb sollten zudem Daten vor den vergangen zwölf Monaten berücksichtigt werden, um keine Fehlentscheidungen zu unterstützen. Außerdem muss beachtet werden, dass keine Unterscheidung zwischen dem Kontext der Großabnehmer gemacht wurde. Es wurde nicht untersucht, ob einzelne Großkunden mit Sitz in UK die Waren auch in anderen Ländern vertreiben, wodurch die direkte Abhängigkeit des Landes sinken könnte. Eine genaue Untersuchung dieser Aspekte wäre (sofern Daten vorhanden sind) zu empfehlen.</p>
-<p>Die Hypothese H2 konzentriert sich auf die Retouren der Kunden, dabei werden Produktspezifische Rückgaberaten ignoriert. Dies sollte jedoch nicht isoliert betrachtet werden, da die Retouren insbesondere stark vom Produkt- und der jeweiligen Kategorie abhängig sind. In diesem Kontext sollten Rückgaben auf Produktebene zusätzlich untersucht werden und im Kontext von der Gewinnmarge pro Produkt neu evaluiert werden, um eventuelle Kostenfallen für das Unternehmen zu eliminieren. (Aufgrund der generellen niedrigen Retourenrate und limitierten Datenverfügbarkeit wurde darauf bewusst verzichtet / dem begrenzten Projektumfang).</p>
+<p>Damit die Forschungsfrage „Wie können Abhängigkeiten für den E-Commerce Shop langfristig reduziert werden und welche Maßnahmen können zur langfristigen Gewinnmaximierung getroffen werden?“ beantwortet werden kann, werden die zwei Hypothesen „Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist“ und „Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe“ genauer betrachtet. Hypothese H1 fokussiert sich auf die Reduktion der Abhängigkeiten, hierbei wird der Zusammenhang zwischen dem Unternehmensstandort (Vereinigten Königreich) und dem Umsatz untersucht. Der Umsatzanteil des Vereinigten Königreiches beträgt 85% somit ist ein signifikanter Anteil des Umsatzes vom VK anhängig. Die große Umsatzabhängigkeit des Unternehmens von einem Land führt zu einem hohen Risiko, da politische Entscheidungen, wirtschaftliche Schwankungen oder sonstige lokale Einflüsse zu einem starken Umsatzrückgang beitragen könnten. Die Hypothese H2 fokussiert sich auf die Maximierung des Gewinns, indem diese die Zusammenhänge zwischen Rückgaben und der Häufigkeit der Kundeneinkäufe untersucht. Auffällig ist hierbei, dass die Rückgaben bei einer steigenden Anzahl an Käufen (pro Kunde) sinken. Aufgrund der generell niedrigen Retourenrate von rund 2% sind die Retouren kein unternehmensspezifisches Problem (vgl. Repko, 2022). ## Limitations and Data issues Die Analyse der Hypothese H1 bezieht sich nur auf (Transaktions-)Daten der letzten zwölf Monate, wodurch der begrenzte Zeitraum eine Verzerrung der eigentlichen Umsatztreiber(Regionen) wiederspiegeln könnte. Deshalb sollten zudem Daten vor den vergangenen zwölf Monaten berücksichtigt werden, damit keine Fehlentscheidungen getroffen werden. Außerdem muss beachtet werden, dass keine Unterscheidung zwischen dem Kontext der Großabnehmer gemacht wurde. Es wurde nicht untersucht, ob einzelne Großkunden mit Sitz in UK die Waren auch in anderen Ländern vertreiben, wodurch die direkte Abhängigkeit des Landes sinken könnte. Eine genaue Untersuchung dieser Aspekte wäre (sofern Daten vorhanden sind) zu empfehlen.</p>
+<p>Die Hypothese H2 konzentriert sich auf die Retouren der Kunden, dabei werden produktspezifische Rückgaberaten ignoriert. Dies sollte jedoch nicht isoliert betrachtet werden, da die Retouren insbesondere stark vom Produkt- und der jeweiligen Kategorie abhängig sind. In diesem Kontext sollten Rückgaben auf Produktebene zusätzlich untersucht werden und im Kontext der Gewinnmarge pro Produkt neu evaluiert werden, um eventuelle Kostenfallen für das Unternehmen zu eliminieren. Aufgrund der generellen niedrigen Retourenrate sowie der limitierten Datenverfügbarkeit und dem begrenzten Projektumfang wurde hierauf bewusst verzichtet.</p>
 <section id="recommended-action" class="level2">
 <h2 class="anchored" data-anchor-id="recommended-action">Recommended Action</h2>
-<p>Das Unternehmen muss die Umsatzabhängigkeit von dem Vereinigten Königreich senken, indem der Umsatz durch eine Marktdurchdringungsstrategie in Ländern außerhalb des VK gestärkt wird. Hierfür werden Investitionen in das Marketing und eine Anpassung des Webshops für landesspezifische Präferenzen benötigt werden. Zudem sollte das Unternehmen die Mechanismen zur Verringerung der Retourenrate beibehalten.</p>
+<p>Das Unternehmen muss die Umsatzabhängigkeit von dem Vereinigten Königreich senken, indem der Umsatz durch eine Marktdurchdringungsstrategie in Ländern außerhalb des VK gestärkt wird. Hierfür werden Investitionen in das Marketing und eine Anpassung des Webshops für landesspezifische Präferenzen empfohlen. Damit die Regionen mit einem besonders hohen Umsatzpotential identifiziert werden können, um dort die Anwendung der Marktdurchdringungsstrategie zu ermöglichen muss ein Analyseprojekt durchgeführt werden. Zudem sollte das Unternehmen die Mechanismen zur Verringerung der Retourenrate beibehalten.</p>
 </section>
 </section>
 <section id="literatur" class="level1">
