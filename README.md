@@ -7,7 +7,7 @@
 
 Ausgehend von der Problematik der geringen Margen im Online-Handel soll untersucht werden, wie Margen erhöht und Risiken die einen Einfluss auf den Gewinn haben reduziert werden können. Hierfür werden die zwei folgenden Hypothesen untersucht:
 
-  H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.
+  H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.<br>
   H2: Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe.
 
 ---
