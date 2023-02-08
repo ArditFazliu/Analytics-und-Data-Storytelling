@@ -1,12 +1,14 @@
-## My Project Title
+## Data Storytelling & Analytics project: E-Commerce transaction data
 
 
 ---
 
 ### Project description
 
-*Your description here*
+Ausgehend von der Problematik der geringen Margen im Online-Handel soll untersucht werden, wie Margen erhöht und Risiken die einen Einfluss auf den Gewinn haben reduziert werden können. Hierfür werden die zwei folgenden Hypothesen untersucht:
 
+  H1: Die Einnahmen des Online-Shops werden maßgeblich vom Land beeinflusst, in dem das Unternehmen ansässig ist.
+  H2: Die Wahrscheinlichkeit, dass ein Kunde ein Produkt zurückgibt, sinkt mit der Anzahl der getätigten Käufe.
 
 ---
 
@@ -15,22 +17,22 @@
 
 
 ```nohighlight
-├── README.md          <- The top-level README for people using this project.
+├── README.md             <- The top-level README for people using this project.
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final data sets.
-│   └── raw            <- The original, immutable data dump.
+│   ├── processed         <- The final data sets.
+│   └── raw               <- The original, immutable data dump.
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+├── notebooks             <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `01-JK-data-preparation.ipynb`.
 │
-├── references         <- Data dictionaries, project explanations, and all other explanatory materials.
+├── references            <- Data dictionaries, project explanations, and all other explanatory materials.
 │
-├── reports            <- Generated analysis as HTML, PDF, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+├── reports               <- Generated analysis as HTML, PDF, etc.
+│   ├── draft_reports     <- Draft versions of the eda and the hypothesis.
+│   ├── report_copy_files <- Saved copy of report.
+│   └── figures           <- Generated graphics and figures to be used in reporting.
 │
-├── requirements       <- The requirements file for reproducing the analysis environment, e.g. a `environment.yml` file
+├── requirements          <- The requirements file for reproducing the analysis environment, e.g. a `environment.yml` file.
 
 ```    
